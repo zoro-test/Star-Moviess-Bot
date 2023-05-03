@@ -123,7 +123,7 @@ async def next_page(bot, query):
 
     btn.insert(0,
         [
-            InlineKeyboardButton(text="⚡ How to Download ⚡", url='https://t.me/UK_Movies_Zone_Updates')
+            InlineKeyboardButton(text="⚡ How to Download ⚡", url='https://t.me/Star_Bots_Tamil')
         ]
     )
 
@@ -159,9 +159,9 @@ async def next_page(bot, query):
         ],
     )
     btn.insert(0, [
-        InlineKeyboardButton('😎 Group', url='https://t.me/HMTD_Discussion_Group'),
+        InlineKeyboardButton('😎 Group', url='https://t.me/Star_Bots_Tamil_Support'),
         InlineKeyboardButton('☺️ Share', url='https://t.me/share/url?url=I%27m%20an%20UK%20Movies%20Official%20Auto%20Filter%20Bot%20%28Movie%20Search%20Bot%29.%20Just%20Search%20Then%20You%20Can%20Get%20Files..%E2%9D%A4%EF%B8%8F%0A%0A%F0%9F%93%A2%20Join%20Our%20Update%20Channel%20%3A-%0A%40UK_Movies_Zone_Updates%0A%0A%F0%9F%94%A5%20Powered%20By%20%3A-%0A%40UK_Studios_Official%0A%40HMTD_Links%0A%20%20%0A%F0%9F%91%87%20Join%20%3A-%0A%20https%3A//t.me/UK_Movies_Zone'),
-        InlineKeyboardButton('📢 Channel', url='https://t.me/UK_Movies_Zone_Updates')
+        InlineKeyboardButton('📢 Channel', url='https://t.me/Star_Moviess_Tamil')
         ]
     )
     try:
@@ -196,7 +196,7 @@ async def advantage_spoll_choker(bot, query):
                 text=(REQ_TO_ADMIN),
                 reply_markup=InlineKeyboardMarkup(
                                        [[
-                                         InlineKeyboardButton('⭕ Request to Admin ⭕', url="https://t.me/HMTD_Feedback_Bot")
+                                         InlineKeyboardButton('⭕ Request to Admin ⭕', url="https://t.me/Star_Movies_Feedback_Bot")
                                        
                                        ]]
                 ),
@@ -476,8 +476,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('©️ Add me to Your Group', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
-            InlineKeyboardButton('💰 Earn Money', url='https://tnlink.in/ref/KarthikUK'),
-            InlineKeyboardButton('📢 Update Channel', url='https://t.me/UK_Movies_Zone_Updates')
+            InlineKeyboardButton('🤖 Bot Channel', url='https://t.me/Star_Bots_Tamil'),
+            InlineKeyboardButton('🎥 Movie Update', url='https://t.me/Star_Moviess_Tamil')
         ], [
             InlineKeyboardButton('😎 Help', callback_data='help'),
             InlineKeyboardButton('😁 About', callback_data='about')
@@ -951,7 +951,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝘀 𝗙𝗼𝗿𝗺𝗮𝘁𝘀\n\n• 𝖲𝗈𝗅𝗈 2017\n• 𝖣𝗁𝗈𝗈𝗆 3 𝖧𝗂𝗇𝖽𝗂\n• 𝖪𝗎𝗋𝗎𝗉 𝖪𝖺𝗇𝗇𝖺𝖽𝖺\n• 𝖣𝖺𝗋𝗄 𝗌01\n• 𝖲𝗁𝖾 𝖧𝗎𝗅𝗄 720𝗉\n• 𝖥𝗋𝗂𝖾𝗇𝖽𝗌 𝗌03 1080𝗉\n\n‼️𝗗𝗼𝗻𝘁 𝗮𝗱𝗱 𝘄𝗼𝗿𝗱𝘀 & 𝘀𝘆𝗺𝗯𝗼𝗹𝘀  , . - 𝗹𝗶𝗸𝗲 send link movie series 𝗲𝘁𝗰‼️", show_alert=True)
     
     elif query.data == 'tips':
-        await query.answer("𝖳𝗁𝗂𝗌 𝖬𝖾𝗌𝗌𝖺𝗀𝖾 𝖶𝗂𝗅𝗅 𝖡𝖾 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 𝖠𝖿𝗍𝖾𝗋 5 𝖬𝗂𝗇𝗎𝗍𝖾𝗌 𝗍𝗈 𝖯𝗋𝖾𝗏𝖾𝗇𝗍 𝖢𝗈𝗉𝗒𝗋𝗂𝗀𝗁𝗍 !\n\n𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖴𝗌𝗂𝗇𝗀 𝖬𝖾 😊\n\n\n𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 @HMTD_Links", show_alert=True)
+        await query.answer("𝖳𝗁𝗂𝗌 𝖬𝖾𝗌𝗌𝖺𝗀𝖾 𝖶𝗂𝗅𝗅 𝖡𝖾 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 𝖠𝖿𝗍𝖾𝗋 5 𝖬𝗂𝗇𝗎𝗍𝖾𝗌 𝗍𝗈 𝖯𝗋𝖾𝗏𝖾𝗇𝗍 𝖢𝗈𝗉𝗒𝗋𝗂𝗀𝗁𝗍 !\n\n𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖴𝗌𝗂𝗇𝗀 𝖬𝖾 😊\n\n\n𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 @Star_Moviess_Tamil", show_alert=True)
 
     elif query.data.startswith("setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
@@ -1075,7 +1075,7 @@ async def auto_filter(client, msg, spoll=False):
 
     btn.insert(0,
         [
-            InlineKeyboardButton(text="⚡ How to Download ⚡", url='https://t.me/UK_Movies_Zone_Updates')
+            InlineKeyboardButton(text="⚡ How to Download ⚡", url='https://t.me/Star_Bots_Tamil')
         ]
     )
 
@@ -1099,9 +1099,9 @@ async def auto_filter(client, msg, spoll=False):
         ],
     )
     btn.insert(0, [
-        InlineKeyboardButton('😎 Group', url='https://t.me/HMTD_Discussion_Group'),
+        InlineKeyboardButton('😎 Group', url='https://t.me/Star_Bots_Tamil_Support'),
         InlineKeyboardButton('☺️ Share', url='https://t.me/share/url?url=I%27m%20an%20UK%20Movies%20Official%20Auto%20Filter%20Bot%20%28Movie%20Search%20Bot%29.%20Just%20Search%20Then%20You%20Can%20Get%20Files..%E2%9D%A4%EF%B8%8F%0A%0A%F0%9F%93%A2%20Join%20Our%20Update%20Channel%20%3A-%0A%40UK_Movies_Zone_Updates%0A%0A%F0%9F%94%A5%20Powered%20By%20%3A-%0A%40UK_Studios_Official%0A%40HMTD_Links%0A%20%20%0A%F0%9F%91%87%20Join%20%3A-%0A%20https%3A//t.me/UK_Movies_Zone'),
-        InlineKeyboardButton('📢 Channel', url='https://t.me/UK_Movies_Zone_Updates')
+        InlineKeyboardButton('📢 Channel', url='https://t.me/Star_Moviess_Tamil')
         ]
     )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
