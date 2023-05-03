@@ -110,10 +110,10 @@ async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('📢 Update Channel', url='https://t.me/UK_Movies_Zone_Updates')
+                InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
             ],
             [
-                InlineKeyboardButton('💰 Earn Money', url=f"https://tnlink.in/ref/KarthikUK"),
+                InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
             ],
             [
                 InlineKeyboardButton(text=DOWNLOAD_TEXT_NAME,url=DOWNLOAD_TEXT_URL)
@@ -134,8 +134,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('©️ Add me to Your Group', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('💰 Earn Money' , url='https://tnlink.in/ref/KarthikUK'),
-            InlineKeyboardButton('📢 Update Channel', url='https://t.me/UK_Movies_Zone_Updates')
+            InlineKeyboardButton('🤖 Bot Channel' , url='https://t.me/Star_Bots_Tamil'),
+            InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
             ],[
             InlineKeyboardButton('😎 Help', callback_data='help'),
             InlineKeyboardButton('😁 About', callback_data='about')
@@ -180,8 +180,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('©️ Add me to Your Group', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('💰 Earn Money', url='https://tnlink.in/ref/KarthikUK'),
-            InlineKeyboardButton('📢 Update Channel', url='https://t.me/UK_Movies_Zone_Updates')
+            InlineKeyboardButton('🤖 Bot Channel', url='https://t.me/Star_Bots_Tamil'),
+            InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
             ],[
             InlineKeyboardButton('😎 Help', callback_data='help'),
             InlineKeyboardButton('😁 About', callback_data='about')
@@ -333,8 +333,8 @@ async def start(client, message):
     feck=await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
-        caption=f_caption+f"\n\nNote :-𝗧𝗵𝗶𝘀 𝗳𝗶𝗹𝗲 𝘄𝗶𝗹𝗹 𝗯𝗲 𝗱𝗲𝗹𝗲𝘁𝗲𝗱 𝗶𝗻 {round(FILE_DELETE_TIMER/60)} 𝗺𝗶𝗻𝘂𝘁𝗲𝘀. 𝗦𝗼 𝗙𝗼𝘄𝗮𝗿𝗱 𝘁𝗼 𝘆𝗼𝘂𝗿 𝘀𝗮𝘃𝗲𝗱 𝗺𝗲𝘀𝘀𝗮𝗴𝗲𝘀.",
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('🔥 Join Our Channel 🔥', url='https://t.me/UK_Movies_Zone_Updates') ] ] ),
+        caption=f_caption+f"\n\n<b>Note :- This File Will be Deleted in {round(FILE_DELETE_TIMER/60)} Minutes. So Forward to Your Saved Messages.</b>",
+        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('🔥 Join Our Channel 🔥', url='https://t.me/Star_Moviess_Tamil') ] ] ),
         protect_content=True if pre == 'filep' else False,
         )
     await asyncio.sleep(FILE_DELETE_TIMER)
@@ -441,7 +441,7 @@ async def channel_info(bot, message):
 async def log_file(bot, message):
     """Send Log File 📂"""
     try:
-        await message.reply_document('UKMoviesBot.log')
+        await message.reply_document('StarMoviesBot.log')
     except Exception as e:
         await message.reply(str(e))
 
@@ -982,7 +982,7 @@ async def share_text(client, message):
             text=f"**Notice :-\n\n1. Reply Any Messages.\n2. No Media Support\n\nAny Question Join Support Chat**",                
             reply_to_message_id=reply_id,
             quote=True,               
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("👥 Support Chat", url=f"https://t.me/HMTD_Discussion_Group")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("👥 Support Chat", url=f"https://t.me/Star_Bots_Tamil_Support0")]])
             )                                                   
         return
     await message.reply_text(
@@ -1137,9 +1137,9 @@ async def echo(client, message):
 							fromt = i
 						if list[i] == translation.dest:
 							to = i
-					await message.reply_text(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```{translation.text}```\n\n Join @HMTD_Links")
+					await message.reply_text(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```{translation.text}```\n\n Join @Star_Moviess_Tamil")
 			except Exception as e:
-					await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```\n\n Join @HMTD_Links")
+					await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```\n\n Join @Star_Moviess_Tamil")
 	else:
 		await  message.reply_text("Select language 👇",reply_to_message_id = message.id, reply_markup =keybord1)
 
@@ -1356,9 +1356,9 @@ async def translate_text(bot,update):
       					fromt = i
       				if list[i] == translation.dest:
       					to = i 
-      			await update.message.edit(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```{translation.text}```\n\n Join @HMTD_Links")
+      			await update.message.edit(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```{translation.text}```\n\n Join @Star_Moviess_Tamil")
       		except Exception as e:
-      			await update.message.edit(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```\n\n Join @HMTD_Links")
+      			await update.message.edit(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```\n\n Join @Star_Moviess_Tamil")
 
 @Client.on_message(filters.private &filters.command(['unset']))
 async def unsetlg(client,message):
@@ -1396,7 +1396,7 @@ async def password(bot, update):
     limit = int(qw)
     random_value = "".join(random.sample(password, limit))
     txt = f"<b>Limit:</b> {str(limit)} \n<b>Password: <code>{random_value}</code>"
-    btn = InlineKeyboardMarkup([[InlineKeyboardButton('UK Movies', url='https://t.me/HMTD_Links')]])
+    btn = InlineKeyboardMarkup([[InlineKeyboardButton('Star Movies Tamil', url='https://t.me/Star_Moviess_Tamil')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
 @Client.on_message(filters.command("alive"))
@@ -1577,7 +1577,7 @@ async def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = await message.reply(f"**ѕєαrchíng чσur ѕσng...!\n {query}**")
+    m = await message.reply(f"**Searching Your Song...!\n {query}**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -1593,16 +1593,16 @@ async def song(client, message):
         views = results[0]["views"]
     except Exception as e:
         print(str(e))
-        return await m.edit("**𝙵𝙾𝚄𝙽𝙳 𝙽𝙾𝚃𝙷𝙸𝙽𝙶 𝙿𝙻𝙴𝙰𝚂𝙴 𝙲𝙾𝚁𝚁𝙴𝙲𝚃 𝚃𝙷𝙴 𝚂𝙿𝙴𝙻𝙻𝙸𝙽𝙶 𝙾𝚁 𝙲𝙷𝙴𝙲𝙺 𝚃𝙷𝙴 𝙻𝙸𝙽𝙺**")
+        return await m.edit("**Found Nothing Please Correct The Spelling or Check The Link 🔗**")
                 
-    await m.edit("**dσwnlσαdíng чσur ѕσng...!**")
+    await m.edit("**Downloading Your Song...!**")
     try:
         with YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
 
-        cap = "**BY›› [UK Movies](https://t.me/HMTD_Links)**"
+        cap = "**BY›› [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**"
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -1618,7 +1618,7 @@ async def song(client, message):
         )            
         await m.delete()
     except Exception as e:
-        await m.edit("**🚫 𝙴𝚁𝚁𝙾𝚁 🚫**")
+        await m.edit("**🚫 Error 🚫**")
         print(e)
     try:
         os.remove(audio_file)
@@ -1700,7 +1700,10 @@ SHAREUS_API = os.environ.get("SHAREUS_API", "IiXFmlsLukgMvDpc3t3FHbLal4u1")
 
 reply_markup = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('📢 Update Channel', url='https://t.me/UK_Movies_Zone_Updates')
+        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
+        ],
+        [
+        InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
         ],
         [
         InlineKeyboardButton('⚡ Request', url=f"https://t.me/TG_Karthik"),
