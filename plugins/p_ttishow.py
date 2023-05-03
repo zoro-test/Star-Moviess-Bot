@@ -37,8 +37,8 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-            InlineKeyboardButton('How to Use Me ', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 Join Update Channel', url='https://t.me/UK_Studios_Official')
+            InlineKeyboardButton('How to Use Me ❓', url=f"https://t.me/{temp.U_NAME}?start=help"),
+            InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -55,14 +55,14 @@ async def save_group(bot, message):
                         pass
                 temp.MELCOW['welcome'] = await message.reply_video(
                 video="https://telegra.ph/file/11d612c9f9a61c19427b0.mp4",                                               
-                                                 caption=f'<b>Hello 👋🏻 {u.mention},\nWelcome to Our Group UK Movies Group\nWe are Providing Tamil and Tamil Dubbed Movies. More Languages Coming Soon. I Can Support Upto 4GB File. You Can Get added Files GDrive Links and 4GB above Links also. You Can Get GDrive Links in <a href=https://www.HMTDMovies.tk/><b></b>www.HMTDMovies.tk</a>. Keep me Join to Our Official Channel to Receive Bot & Movies Updates in <a href=https://t.me/UK_Movies_Zone_Updates><b></b>UK Movies Zone (Updates)</a>.</b>',
+                                                 caption=f'<b>Hello 👋🏻 {u.mention},\nWelcome to Star Movies Request Group.\nWe are Providing Tamil, Telugu, Hindi, Malayalam, Kannada, English and Extra... I Can Support Upto 4GB File. Keep me Join to Our Official Channels to Receive Bot & Movies Updates in <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a> & <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>.</b>',
                                                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('🚫 Group Rules 🚫', url='http://t.me/MissRose_bot?start=rules_-1001650088903') ] ] )
                 )
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
-        return await message.reply('<b>Give me a chat 🆔</b>')
+        return await message.reply('<b>Give Me a Chat 🆔</b>')
     chat = message.command[1]
     try:
         chat = int(chat)
@@ -87,7 +87,7 @@ async def leave_a_chat(bot, message):
 @Client.on_message(filters.command('disable') & filters.user(ADMINS))
 async def disable_chat(bot, message):
     if len(message.command) == 1:
-        return await message.reply('<b>Give me a chat 🆔</b>')
+        return await message.reply('<b>Give Me a Chat 🆔</b>')
     r = message.text.split(None)
     if len(r) > 2:
         reason = message.text.split(None, 2)[2]
