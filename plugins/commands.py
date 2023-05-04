@@ -1104,49 +1104,7 @@ async def password(bot, update):
 async def check_alive(_, message):
     await message.reply_text("**Hello 👋🏻 Bro /start**")
 
-ask_ques = "Please choose the python library you want to generate string session for"
-buttons_ques = [
-    [
-        InlineKeyboardButton("Pyrogram", callback_data="pyrogram"),
-        InlineKeyboardButton("Telethon", callback_data="telethon"),
-    ],
-    [
-        InlineKeyboardButton("Pyrogram Bot", callback_data="pyrogram_bot"),
-        InlineKeyboardButton("Telethon Bot", callback_data="telethon_bot"),
-    ],
-]
-
-
-@Client.on_message(filters.private & ~filters.forwarded & filters.command('generate'))
-async def main(_, msg):
-    await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
-
-
-async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bool = False):
-    if telethon:
-        ty = "Telethon"
-    else:
-        ty = "Pyrogram v2"
-    if is_bot:
-        ty += " Bot"
-    await msg.reply(f"Starting {ty} Session Generation...")
-    user_id = msg.chat.id
-    api_id_msg = await bot.ask(user_id, 'Please send your `API_ID`', filters=filters.text)
-    if await cancelled(api_id_msg):
-        return
-    try:
-        api_id = int(api_id_msg.text)
-    except ValueError:
-        await api_id_msg.reply('Not a valid API_ID (which must be an integer). Please start generating session again.', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
-        return
-    api_hash_msg = await bot.ask(user_id, 'Please send your `API_HASH`', filters=filters.text)
-    if await cancelled(api_hash_msg):
-        return
-    api_hash = api_hash_msg.text
-    if not is_bot:
-        t = "Now please send your `PHONE_NUMBER` along with the country code. \nExample : `+19876543210`'"
-    else:
-        t = "Now please send your `BOT_TOKEN` \nExample : `12345:abcdefghijklmnopqrstuvwxyz`'"
+"Now please send your `BOT_TOKEN` \nExample : `12345:abcdefghijklmnopqrstuvwxyz`'"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
     if await cancelled(phone_number_msg):
         return
