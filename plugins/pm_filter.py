@@ -25,7 +25,6 @@ import traceback
 from plugins.data import Data
 from pyrogram import Client
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
-from plugins.commands import generate_session, ask_ques, buttons_ques
 
 import os
 req_channel = int(os.environ.get('REQ_CHANNEL', '-1001831802226'))
