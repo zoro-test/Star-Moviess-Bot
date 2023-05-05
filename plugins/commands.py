@@ -1191,11 +1191,6 @@ async def text_to_speech(_, message: Message):
         e = traceback.format_exc()
         print(e)
 
-@Client.on_message(filters.user(ADMIN) & filters.command(["find"]))
-async def findmenb(bot, message):
-		id = message.text.split("/find")
-		user_id = id[1].replace(" ", "")
-		await message.reply_text(find_one(int(user_id)))
 
 @Client.on_message(filters.command(["translate"]) & filters.private)
 async def left(client,message):
@@ -1226,9 +1221,9 @@ async def left(client,message):
 						fromt = i
 					if list[i] == translation.dest:
 						to = i 
-				await message.reply_text(f"translated from {fromt.capitalize()} to {to.capitalize()}\n\n```{translation.text}```", reply_markup=hehek, quote=True)
+				await message.reply_text(f"Translated from {fromt.capitalize()} to {to.capitalize()}\n\n```{translation.text}``` Join @Star_Bots_Tamil", reply_markup=hehek, quote=True)
 			except:
-			   	await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```", reply_markup=hehek, quote=True)
+			   	await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```Join @Star_Bots_Tamil", reply_markup=hehek, quote=True)
 			
 		except :
 			print("error")
