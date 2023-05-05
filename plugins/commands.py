@@ -1080,7 +1080,15 @@ async def stop_button(bot, message):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 @Client.on_message(filters.command(["stickerid"]))
-async def stickerid(bot, message):   
+async def stickerid(bot, message):  
+
+    reply = message.reply_to_message    reply = message.reply_to_message
+    reply_id = message.reply_to_message.id if message.reply_to_message else message.id
+
+
+    reply_id = message.reply_to_message.id if message.reply_to_message else message.id
+
+
     if message.reply_to_message.sticker:
        await message.reply(f"**Sticker ID is**\n`{message.reply_to_message.sticker.file_id}`\n\n**Unique ID is **\n\n`{message.reply_to_message.sticker.file_unique_id}`", quote=True)
     else: 
@@ -1088,7 +1096,7 @@ async def stickerid(bot, message):
 
 @Client.on_message(filters.command(["password"]))
 async def password(bot, update):
-    message = await update.reply_text(text="`Processing...`")
+    message = await update.reply_text(text="**Processing...**")
     password = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+".lower()
     if len(update.command) > 1:
         qw = update.text.split(" ", 1)[1]
@@ -1175,10 +1183,10 @@ def get_text(message: Message) -> [None,str]:
 @Client.on_message(filters.command("text2speech"))
 async def text_to_speech(_, message: Message):
     if not message.reply_to_message:
-        return await message.reply_text("Reply to some text ffs.")
+        return await message.reply_text("**Reply to with Any Text.**")
     if not message.reply_to_message.text:
-        return await message.reply_text("Reply to some text ffs.")
-    m = await message.reply_text("Processing")
+        return await message.reply_text("**Reply to with Any Text.**")
+    m = await message.reply_text("**Processing**")
     text = message.reply_to_message.text
     try:
         loop = get_running_loop()
@@ -1192,11 +1200,11 @@ async def text_to_speech(_, message: Message):
         print(e)
 
 
-@Client.on_message(filters.command(["tr"]) & filters.private)
+@Client.on_message(filters.command(["translate"]) & filters.private)
 async def left(client,message):
 	if (message.reply_to_message):
 		try:
-			lgcd = message.text.split("/tr")
+			lgcd = message.text.split("/translate")
 			lg_cd = lgcd[1].lower().replace(" ", "")
 			tr_text = message.reply_to_message.text
 			translator = Translator()
@@ -1205,12 +1213,12 @@ async def left(client,message):
                                 [
                                     [
                                         InlineKeyboardButton(
-                                            text=f"𝘔𝘰𝘳𝘦 𝘓𝘢𝘯𝘨 𝘊𝘰𝘥𝘦𝘴", url="https://cloud.google.com/translate/docs/languages"
+                                            text=f"More Lang Codes", url="https://cloud.google.com/translate/docs/languages"
                                         )
                                     ],
 				    [
                                         InlineKeyboardButton(
-                                            "𝘊𝘭𝘰𝘴𝘦", callback_data="close_data"
+                                            "🚫 Close", callback_data="close_data"
                                         )
                                     ],
                                 ]
