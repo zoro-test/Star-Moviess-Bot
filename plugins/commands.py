@@ -1192,7 +1192,7 @@ async def text_to_speech(_, message: Message):
 
 
 
-@Client.on_message(filters.command(["translate"]))
+@Client.on_message(filters.command(["translate"]) & filters.private)
 async def left(client,message):
 	if (message.reply_to_message):
 		try:
