@@ -1104,7 +1104,7 @@ async def password(bot, update):
 async def check_alive(_, message):
     await message.reply_text("**Hello 👋🏻 Bro /start**")
 
-@Client.on_message(filters.command(['song', 'mp3']) & filters.private)
+@Client.on_message(filters.command('song') & filters.private)
 async def song(client, message):
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
@@ -1137,7 +1137,7 @@ async def song(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        cap = "**BY›› [Mᴋɴ Bᴏᴛᴢ™](https://t.me/mkn_bots_updates)**"
+        cap = "**BY›› [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**"
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -1153,7 +1153,7 @@ async def song(client, message):
         )            
         await m.delete()
     except Exception as e:
-        await m.edit("**🚫 𝙴𝚁𝚁𝙾𝚁 🚫**")
+        await m.edit("**🚫 Error 🚫**")
         print(e)
     try:
         os.remove(audio_file)
@@ -1190,74 +1190,45 @@ async def text_to_speech(_, message: Message):
         e = traceback.format_exc()
         print(e)
 
-@Client.on_message(filters.command(['song']) & filters.private)
-async def song(client, message):
-    user_id = message.from_user.id 
-    user_name = message.from_user.first_name 
-    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
-    query = ''
-    for i in message.command[1:]:
-        query += ' ' + str(i)
-    print(query)
-    m = await message.reply(f"**Searching Your Song...!\n {query}**")
-    ydl_opts = {"format": "bestaudio[ext=m4a]"}
-    try:
-        results = YoutubeSearch(query, max_results=1).to_dict()
-        link = f"https://youtube.com{results[0]['url_suffix']}"
-        title = results[0]["title"][:40]       
-        thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f'thumb{title}.jpg'
-        thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, 'wb').write(thumb.content)
-        performer = f"[Mᴋɴ Bᴏᴛᴢ™]" 
-        duration = results[0]["duration"]
-        url_suffix = results[0]["url_suffix"]
-        views = results[0]["views"]
-    except Exception as e:
-        print(str(e))
-        return await m.edit("**Found Nothing Please Correct The Spelling or Check The Link 🔗**")
-                
-    await m.edit("**Downloading Your Song...!**")
-    try:
-        with YoutubeDL(ydl_opts) as ydl:
-            info_dict = ydl.extract_info(link, download=False)
-            audio_file = ydl.prepare_filename(info_dict)
-            ydl.process_info(info_dict)
 
-        cap = "**BY›› [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**"
-        secmul, dur, dur_arr = 1, 0, duration.split(':')
-        for i in range(len(dur_arr)-1, -1, -1):
-            dur += (int(dur_arr[i]) * secmul)
-            secmul *= 60
-        await message.reply_audio(
-            audio_file,
-            caption=cap,            
-            quote=False,
-            title=title,
-            duration=dur,
-            performer=performer,
-            thumb=thumb_name
-        )            
-        await m.delete()
-    except Exception as e:
-        await m.edit("**🚫 Error 🚫**")
-        print(e)
-    try:
-        os.remove(audio_file)
-        os.remove(thumb_name)
-    except Exception as e:
-        print(e)
 
-def get_text(message: Message) -> [None,str]:
-    text_to_return = message.text
-    if message.text is None:
-        return None
-    if " " not in text_to_return:
-        return None
-    try:
-        return message.text.split(None, 1)[1]
-    except IndexError:
-        return None
+@Client.on_message(filters.command(["translate"]))
+async def left(client,message):
+	if (message.reply_to_message):
+		try:
+			lgcd = message.text.split("/translate")
+			lg_cd = lgcd[1].lower().replace(" ", "")
+			tr_text = message.reply_to_message.text
+			translator = Translator()
+			translation = translator.translate(tr_text,dest = lg_cd)
+			hehek = InlineKeyboardMarkup(
+                                [
+                                    [
+                                        InlineKeyboardButton(
+                                            text=f"𝘔𝘰𝘳𝘦 𝘓𝘢𝘯𝘨 𝘊𝘰𝘥𝘦𝘴", url="https://cloud.google.com/translate/docs/languages"
+                                        )
+                                    ],
+				    [
+                                        InlineKeyboardButton(
+                                            "𝘊𝘭𝘰𝘴𝘦", callback_data="close_data"
+                                        )
+                                    ],
+                                ]
+                            )
+			try:
+				for i in list:
+					if list[i]==translation.src:
+						fromt = i
+					if list[i] == translation.dest:
+						to = i 
+				await message.reply_text(f"translated from {fromt.capitalize()} to {to.capitalize()}\n\n```{translation.text}```", reply_markup=hehek, quote=True)
+			except:
+			   	await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```", reply_markup=hehek, quote=True)
+			
+		except :
+			print("error")
+	else:
+			 ms = await message.reply_text("You can Use This Command by using reply to message")
 
 @Client.on_message(filters.command(["video"]))
 async def vsong(client, message: Message):
