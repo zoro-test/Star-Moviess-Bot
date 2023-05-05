@@ -727,7 +727,7 @@ async def save_template(client, message):
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"<b>Successfully Upgraded Your Template For {title} to\n\n{template}</b>")
 
-@Client.on_message(filters.command("request"))
+@Client.on_message(filters.command("request") & filters.private)
 async def requests(bot, message):
     if REQST_CHANNEL is None or SUPPORT_CHAT_ID is None: return # Must add REQST_CHANNEL and SUPPORT_CHAT_ID to use this feature
     if message.reply_to_message and SUPPORT_CHAT_ID == message.chat.id:
@@ -767,7 +767,7 @@ async def requests(bot, message):
         mention = message.from_user.mention
         success = True
         content = message.text
-        keywords = ["#request", "/request", "#Request", "/Request"]
+        keywords = ["/request"]
         for keyword in keywords:
             if keyword in content:
                 content = content.replace(keyword, "")
@@ -1096,7 +1096,7 @@ async def password(bot, update):
         qw = random.choice(ST)
     limit = int(qw)
     random_value = "".join(random.sample(password, limit))
-    txt = f"<b>Limit:</b> {str(limit)} \n<b>Password: <code>{random_value}</code>"
+    txt = f"<b>Limit:</b> {str(limit)} \n<b>Password:</b>€€ <code>{random_value}</code>"
     btn = InlineKeyboardMarkup([[InlineKeyboardButton('Star Movies Tamil', url='https://t.me/Star_Moviess_Tamil')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
