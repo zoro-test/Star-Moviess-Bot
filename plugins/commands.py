@@ -1081,7 +1081,7 @@ async def stop_button(bot, message):
 
 @Client.on_message(filters.command(["stickerid"]))
 async def stickerid(bot, message):
-    reply = message.reply_to_message
+    reply = message.reply_to_message.sticker
     reply_id = message.reply_to_message.id if message.reply_to_message else message.id
 
     if message.reply_to_message.sticker:
