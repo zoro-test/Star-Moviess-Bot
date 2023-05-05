@@ -100,6 +100,7 @@ from pyrogram.types import Message
 
 HEROKU_API_KEY = (os.environ.get("HEROKU_API_KEY", "01b8b9ae-78d3-428e-88ef-f42af78b623c"))
 ERROR_MESSAGE = "**Oops! An Exception Occurred! \n\nError : {}**"
+ADMIN = int(os.environ.get("ADMIN", 1391556668))
 
 #=====================================================
 
@@ -1190,7 +1191,7 @@ async def text_to_speech(_, message: Message):
         e = traceback.format_exc()
         print(e)
 
-@Client.on_message(filters.user(ADMINS) & filters.command(["find"]))
+@Client.on_message(filters.user(ADMIN) & filters.command(["find"]))
 async def findmenb(bot, message):
 		id = message.text.split("/find")
 		user_id = id[1].replace(" ", "")
