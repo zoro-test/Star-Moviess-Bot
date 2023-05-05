@@ -1192,11 +1192,11 @@ async def text_to_speech(_, message: Message):
         print(e)
 
 
-@Client.on_message(filters.command(["translate"]) & filters.private)
+@Client.on_message(filters.command(["tr"]) & filters.private)
 async def left(client,message):
 	if (message.reply_to_message):
 		try:
-			lgcd = message.text.split("/translate")
+			lgcd = message.text.split("/tr")
 			lg_cd = lgcd[1].lower().replace(" ", "")
 			tr_text = message.reply_to_message.text
 			translator = Translator()
@@ -1221,7 +1221,7 @@ async def left(client,message):
 						fromt = i
 					if list[i] == translation.dest:
 						to = i 
-				await message.reply_text(f"Translated from {fromt.capitalize()} to {to.capitalize()}\n\n```{translation.text}``` Join @Star_Bots_Tamil", reply_markup=hehek, quote=True)
+				await message.reply_text(f"Translated from {fromt.capitalize()} To {to.capitalize()}\n\n```{translation.text}``` Join @Star_Bots_Tamil", reply_markup=hehek, quote=True)
 			except:
 			   	await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```Join @Star_Bots_Tamil", reply_markup=hehek, quote=True)
 			
