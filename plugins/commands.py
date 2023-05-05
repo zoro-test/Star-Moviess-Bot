@@ -1080,14 +1080,9 @@ async def stop_button(bot, message):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 @Client.on_message(filters.command(["stickerid"]))
-async def stickerid(bot, message):  
-
-    reply = message.reply_to_message    reply = message.reply_to_message
+async def stickerid(bot, message):
+    reply = message.reply_to_message
     reply_id = message.reply_to_message.id if message.reply_to_message else message.id
-
-
-    reply_id = message.reply_to_message.id if message.reply_to_message else message.id
-
 
     if message.reply_to_message.sticker:
        await message.reply(f"**Sticker ID is**\n`{message.reply_to_message.sticker.file_id}`\n\n**Unique ID is **\n\n`{message.reply_to_message.sticker.file_unique_id}`", quote=True)
