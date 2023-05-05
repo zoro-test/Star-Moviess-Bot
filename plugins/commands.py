@@ -1190,7 +1190,11 @@ async def text_to_speech(_, message: Message):
         e = traceback.format_exc()
         print(e)
 
-
+@Client.on_message(filters.user(ADMINS) & filters.command(["find"]))
+async def findmenb(bot, message):
+		id = message.text.split("/find")
+		user_id = id[1].replace(" ", "")
+		await message.reply_text(find_one(int(user_id)))
 
 @Client.on_message(filters.command(["translate"]) & filters.private)
 async def left(client,message):
