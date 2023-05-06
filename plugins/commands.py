@@ -1076,9 +1076,10 @@ Heroku Account Status
 async def stop_button(bot, message):
     msg = await bot.send_message(text="**🔄 Bot 🤖 Process is Stopped. Bot is Restarting...**", chat_id=message.chat.id)       
     await asyncio.sleep(3)
-	await msg.edit("**✅️ Bot 🤖 is Restarted. Now You Can Use Me 😁**")
-    os.execl(sys.executable, sys.executable, *sys.argv)
+    await msg.edit("**✅️ Bot 🤖 is Restarted. Now You Can Use Me 😁**")
 
+    os.execl(sys.executable, sys.executable, *sys.argv)
+	
 @Client.on_message(filters.command(["stickerid"]))
 async def stickerid(bot, message):
     if message.reply_to_message.sticker:
@@ -1087,7 +1088,7 @@ async def stickerid(bot, message):
        await message.reply("<b>Oops !! Not a sticker file</b>")
     else:
 
-       await message.reply_text("😔**Sorry ! No Caption found...**😔")
+       await message.reply_text("😔**Reply with a Sticker**😔")
 
 @Client.on_message(filters.command(["password"]))
 async def password(bot, update):
