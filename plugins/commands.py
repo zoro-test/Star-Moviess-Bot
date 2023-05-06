@@ -1086,10 +1086,7 @@ async def stickerid(bot, message):
        await message.reply(f"**Sticker ID is**\n`{message.reply_to_message.sticker.file_id}`\n\n**Unique ID is **\n\n`{message.reply_to_message.sticker.file_unique_id}`", quote=True)
     else: 
        await message.reply("<b>Oops !! Not a sticker file</b>")
-    if not message.reply_to_message:
 
-        return await message.reply_text("😔**Reply with a Sticker**😔")
- 
 
 @Client.on_message(filters.command(["password"]))
 async def password(bot, update):
