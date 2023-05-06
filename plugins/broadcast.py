@@ -52,10 +52,6 @@ async def verupikkals(bot, message):
     time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
     await sts.edit(f"<b>Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}</b>")
 
-    else:
-
-        msg = await message.reply(BROADCAST_REPLY_ERROR)
-
 
    
 @Client.on_message(filters.command("junk_users") & filters.user(ADMINS))
