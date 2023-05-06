@@ -98,7 +98,7 @@ from pyrogram.types import Message
 
 #=====================================================
 
-HEROKU_API_KEY = (os.environ.get("HEROKU_API_KEY", "01b8b9ae-78d3-428e-88ef-f42af78b623c"))
+HEROKU_API_KEY = (os.environ.get("HEROKU_API_KEY", "7f5531d8-e346-4eef-98be-13c69630c7bd"))
 ERROR_MESSAGE = "**Oops! An Exception Occurred! \n\nError : {}**"
 ADMIN = int(os.environ.get("ADMIN", "1391556668"))
 
