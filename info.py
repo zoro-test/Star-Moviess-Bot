@@ -28,7 +28,7 @@ ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001650088903').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '2001653136').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-auth_channel = environ.get('AUTH_CHANNEL', '-1001811940117')
+auth_channel = environ.get('AUTH_CHANNEL', '-1001822021062')
 auth_grp = environ.get('AUTH_GROUP', '')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
@@ -49,9 +49,9 @@ SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'HMTD_Discussion_Group')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
-CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "<b>[www.HMTDMovies.tk](https://www.HMTDMovies.tk) - {file_caption}\n\n🎥 Get More Movies/Series Files 📂 in [UK Movies Bot](https://t.me/UK_Movies_Bot)\n\n📢 Update Channel :-\n[UK Movies Zone (Updates)](https://t.me/UK_Movies_Zone_Updates)\n\n🔥 Powered By :-\n[UK Studios Official](https://t.me/UK_Studios_Official)\n[HMTD Links](https://t.me/HMTD_Links)</b>")
+CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "<b>[Star Movies Tamil](https://t.me/Star_Moviess_Tamil) - {file_caption}\n\n🎥 Get More Movies/Series Files 📂 in [Star Movies Bot](https://t.me/Star_Moviess_Bot)\n\n📢 Update Channel :-\n[Star Movies Tamil](https://t.me/Star_Moviess_Tamil)\n\n🤖 Bot Channel :-\n[Star Bots Tamil](https://t.me/Star_Bots_Tamil)</b>")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
-IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>🎥 Movie :- <a href={url}>{title}</a>\n\n🎭 Genres :- {genres}\n\n📆 Year :- <a href={url}/releaseinfo>{year}</a>\n\n🌟 Rating :- <a href={url}/ratings>{rating}</a> / 10 (Based on {votes} Users Ratings.)\n\n🎙️ Languages :- {languages}\n\n⏰ Duration :- {runtime} Minutes\n\n🕺 Director :- {director}\n\n🗺️ Countries :- {countries}\n\n📢 Update Channel :-</b>\n<a href=https://t.me/UK_Movies_Zone_Updates><b>UK Movies Zone Updates</b></a>\n\n<b>🔥 Powered By :-\n<a href=https://t.me/UK_Studios_Official><b></b>UK Studios Official</a>\n<a href=https://t.me/HMTD_Links><b></b>HMTD Links</a>\n\n🌐 Our Website :- <a href=https://www.HMTDMovies.tk><b></b>www.HMTDMovies.tk</a></b>")
+IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>🎥 Movie :- <a href={url}>{title}</a>\n\n🎭 Genres :- {genres}\n\n📆 Year :- <a href={url}/releaseinfo>{year}</a>\n\n🌟 Rating :- <a href={url}/ratings>{rating}</a> / 10 (Based on {votes} Users Ratings.)\n\n🎙️ Languages :- {languages}\n\n⏰ Duration :- {runtime} Minutes\n\n🕺 Director :- {director}\n\n🗺️ Countries :- {countries}\n\n📢 Update Channel :-</b>\n<a href=https://t.me/Star_Moviess_Tamil><b>Star Movies Tamil</b></a>\n\n🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b>")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "True"), True)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
@@ -77,14 +77,14 @@ if SELF_DELETE == "True":
 
     # Download Tutorial Button #
 DOWNLOAD_TEXT_NAME = "⚡ How To Download ⚡"
-DOWNLOAD_TEXT_URL = "https://t.me/UK_Movies_Zone_Updates"
+DOWNLOAD_TEXT_URL = "https://t.me/Star_Moviess_Tamil"
 
    # Custom Caption Under Button #
 CAPTION_BUTTON = "🔥 Join Our Channel 🔥"
-CAPTION_BUTTON_URL = "https://t.me/UK_Movies_Zone_Updates"
+CAPTION_BUTTON_URL = "https://t.me/Star_Moviess_Tamil"
 
    # Auto Delete For Bot Sending Files #
-FILE_DELETE_TIMER = int(environ.get('FILE_DELETE_TIMER', '60'))
+FILE_DELETE_TIMER = int(environ.get('FILE_DELETE_TIMER', '3600'))
 
 LOG_STR = "Current Cusomized Configurations are:-\n"
 LOG_STR += ("IMDB Results are Enabled, Bot will be showing imdb details for you queries.\n" if IMDB else "IMBD Results are disabled.\n")
