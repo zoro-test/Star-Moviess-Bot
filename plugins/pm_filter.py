@@ -52,7 +52,7 @@ async def fil_mod(client, message):
       try: 
          args = message.text.split(None, 1)[1].lower() 
       except Exception : 
-         return await message.reply("<b>Incomplete Command...</b>")
+         return await message.reply("<b>USE :- ```/autofilter on``` Or ```/autofilter off```</b>")
       
       m = await message.reply("<b>Settings...</b>")
 
@@ -64,7 +64,7 @@ async def fil_mod(client, message):
           FILTER_MODE[str(message.chat.id)] = "False"
           await m.edit("<b>Auto Filter Disabled</b>")
       else:
-          await m.edit("<b>USE :- /autofilter on or /autofilter off</b>")
+          await m.edit("<b>USE :- ```/autofilter on``` Or ```/autofilter off```</b>")
 
 @Client.on_message((filters.group | filters.private) & filters.text & filters.incoming)
 async def give_filter(client, message):
