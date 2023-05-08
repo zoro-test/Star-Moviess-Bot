@@ -12,7 +12,7 @@ def is_enabled(value, default):
 
 class script(object):
     HOME_BUTTONURL_UPDATES = environ.get("HOME_BUTTONURL_UPDATES", 'https://tnlink.in/ref/KarthikUK')
-    START_TXT = environ.get("START_TXT", '''<b>Hello 👋🏻 {} ♥️,\nI'm an Star Movies Tamil's Official Auto Filter Bot (Movie Search Bot) <a href=https://t.me/UK_Movies_Bot><b>UK Movies Bot</b></a> Maintained by <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. We are Providing Tamil and Tamil Dubbed Movies. More Languages Coming Soon. Keep me Join to Our Official Channel to Receive Bot & Movies Updates in <a href=https://t.me/UK_Movies_Zone_Updates><b></b>UK Movies Zone (Updates)</a>. Check "😁 About" Button.</b>''')
+    START_TXT = environ.get("START_TXT", '''<b>Hello 👋🏻 {} ♥️,\nI'm an Star Movies Tamil's Official Auto Filter Bot (Movie Search Bot) <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a> Maintained by <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. We are Providing All Languages. 🌍 Languages :- Tamil, Telugu, Hindi, Malayalam, Kannada, English and Extra... Keep me Join to Our Official Channel to Receive 🎥 Movie Updates in <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. And Also Keep me Join to Our Official Bot Channel to Receive 🤖 Bot Updates in <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a>. Check "😁 About" Button.</b>''')
     HELP_TXT = """<b>Hello 👋🏻 {} ♥️,
 I have that Features.
 Create One Link This :-
@@ -28,13 +28,13 @@ Create One Link This :-
 🌟 Version :- 4.4</b></i>"""
     SOURCE_TXT = """<b>Create One Like This :-</b>
 » I will Create One Bot For You. But Paid<b>
-» Contact Me</b> <a href=https://t.me/HMTD_Karthik><b>Karthik</b></a>"""
+» Contact Me</b> <a href=https://t.me/TG_Karthik><b>Karthik</b></a>"""
     MANUELFILTER_TXT = """<b>Help :-</b> <b>Filters</b>
 
-<b>- Filter is the Feature Were Users Can set Automated Replies for a Particular Keyword and <a href=https://t.me/UK_Movies_Bot><b>Our Bot</b></a> will Respond Whenever a Keyword is Found the Message</b>
+<b>- Filter is the Feature Were Users Can set Automated Replies for a Particular Keyword and <a href=https://t.me/Star_Moviess_Bot><b>Our Bot</b></a> will Respond Whenever a Keyword is Found the Message</b>
 
 <b>NOTE :-</b>
-<b>1. <a href=https://t.me/UK_Movies_Bot><b>UK Movies Bot</b></a> Should have 👨🏻‍✈️ Admin Privillage.
+<b>1. <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a> Should have 👨🏻‍✈️ Admin Privillage.
 2. Only 👨🏻‍✈️ Admins can Add Filters in a Chat.
 3. Alert Buttons have a Limit of 64 Characters.</b>
 
@@ -45,15 +45,15 @@ Create One Link This :-
 • /delall - Delete the Whole Filters in a Chat (Chat Owner Only)</b>"""
     BUTTON_TXT = """<b>Help :-</b> <b>Buttons</b>
 
-<b>- <a href=https://t.me/UK_Movies_Bot><b>UK Movies Bot</b></a> Supports Both URL and Alert Inline Buttons.</b>
+<b>- <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a> Supports Both URL and Alert Inline Buttons.</b>
 
 <b>NOTE :-</b>
 <b>1. Telegram will Not Allows you to Send Buttons Without Any Content, so Content is Mandatory.
-2. <a href=https://t.me/UK_Movies_Bot><b>UK Movies Bot</b></a> supports Buttons With Any Telegram Media/File type.
+2. <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a> supports Buttons With Any Telegram Media/File type.
 3. Buttons Should be Properly Parsed as Markdown Format</b>
 
 <b>URL Buttons :-</b>
-<code>[Button Text](buttonurl:https://t.me/UK_Movies_Zone_Updates)</code>
+<code>[Button Text](buttonurl:https://t.me/Star_Moviess_Tamil)</code>
 
 <b>Alert Buttons :-</b>
 <code>[Button Text](buttonalert:This is an Alert Message)</code>"""
@@ -126,14 +126,17 @@ New Features ✨
 
     LOG_TEXT_G = """<b>#New_Group</b>
     
-<b>᚛› Group ⪼ {}(<code>{}</code>)</b>
+<b>᚛› Group ⪼ {}</b>
+<b>᚛› Group ID ⪼ <code>{}</code></b>
 <b>᚛› Total Members ⪼ <code>{}</code></b>
 <b>᚛› Added By ⪼ {}</b>
+<b>᚛› From Bot ⪼ <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</a></b>
 """
     LOG_TEXT_P = """<b>#New_User</b>
     
 <b>᚛› ID - <code>{}</code></b>
 <b>᚛› Name - {}</b>
+<b>᚛› From Bot ⪼ <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</a></b>
 """
 
 TRANSLATED_MSG = """<b>Choose The Language From Here That I Want to Translate.👇</b>"""
