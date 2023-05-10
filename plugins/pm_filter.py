@@ -482,7 +482,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('😁 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -500,7 +500,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('📊 Status', callback_data='stats')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.HELP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -511,7 +511,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('😎 Help', callback_data='help')
          ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.ABOUT_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -521,7 +521,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⬅️ Back', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.SOURCE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -532,7 +532,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⏹️ Buttons', callback_data='button')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.MANUELFILTER_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -542,7 +542,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⬅️ Back', callback_data='manuelfilter')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.BUTTON_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -552,7 +552,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⬅️ Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.AUTOFILTER_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -562,7 +562,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⬅️ Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.CONNECTION_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -573,7 +573,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('👮‍♂️ Admin', callback_data='admin')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.EXTRAMOD_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -583,7 +583,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⬅️ Back', callback_data='extra')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.ADMIN_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -601,7 +601,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -620,7 +620,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        await query.message.edit_media(
+        await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
