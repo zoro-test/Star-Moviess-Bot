@@ -127,9 +127,9 @@ YTDL Features  ✨
 • /status - Get Status 📊 Of This Bot 🤖
 • /delete - Delete 🗑️ a Specific File 📂
 • /deleteall - Delete 🗑️ to All Files 📂 From Database
-• /deletefiles - to Delete 🗑️ PreDVD and CAMRip Files 📂 From Database
+• /deletefiles - to Delete 🗑️ PreDVD and CAMRip Files
 • /users - Get List of My Users and IDs
-• /junk_users - Clear All Deleted Accounts & Blocked Accounts From Database
+• /junk_users - Clear All Deleted Accounts & Blocked Accounts
 • /chats - Get List of The My Chats and IDs
 • /junk_chats - Clear Admin 👨🏻‍✈️ Removed or Deactivated Chats
 • /leave  - Leave From a Chat
