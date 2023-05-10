@@ -40,9 +40,13 @@ Create One Link This :-
 
 <b>Commands and Usage :-</b>
 <b>• /filter - Add a Filter in Chat
-• /filters - list all the Filters of a Chat
+• /filters - List all the Filters of a Chat
+• /gfilter - Add a Global Filter in Chat
+• /gfilters - List all the Global Filters of a Chat
 • /del - Delete a Specific Filter in Chat 
-• /delall - Delete the Whole Filters in a Chat (Chat Owner Only)</b>"""
+• /delall - Delete the Whole Filters in a Chat (Chat Owner Only)
+• /delg - Delete 🗑️ a Specific Global Filter in Chat 
+• /delallg - Delete the Whole Global Filters</b>"""
     BUTTON_TXT = """<b>Help :-</b> <b>Buttons</b>
 
 <b>- <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a> Supports Both URL and Alert Inline Buttons.</b>
@@ -58,6 +62,10 @@ Create One Link This :-
 <b>Alert Buttons :-</b>
 <code>[Button Text](buttonalert:This is an Alert Message)</code>"""
     AUTOFILTER_TXT = """<b>Help :-</b> <b>Auto Filter</b>
+    
+<b>You Can On or Off Auto Filter From Your Chat. 
+
+Example :- <code>/autofilter on Or /autofilter off</code></b>
 
 <b>NOTE :-</b>
 <b>1. Make Me The 👨🏻‍✈️ Admin of Your Channel if it's Private.
@@ -93,7 +101,16 @@ New Features ✨
 
 • /font - Font is a Module For Make Your Text Stylish 🖊️
 • /share - Reply with Any Text to Get Share Link 🔗
-• /graph - Reply to a Photo or Video Under 5MB</b>"""
+• /graph - Reply to a Photo or Video Under 5MB
+• /text2speech - Reply with Text to Get Audio Speech 💬
+• /alive - Check Bot Alive or Not
+• /password - Generate Secret Password 🔑
+
+YTDL Features  ✨
+
+• /video - Download Video From YouTube with Any Link 🔗 (Auto Quality)
+• /song - Download Song From YouTube with Song Name</b>"""
+
     ADMIN_TXT = """<b>Help :-</b> <b>👨🏻‍✈️ Admin Mods</b>
 
 <b>NOTE :-</b>
@@ -101,14 +118,17 @@ New Features ✨
 
 <b>Commands and Usage :-</b>
 <b>• /logs - to Get The Recent Errors
-• /send - Send Message to Spacific User 🤵🏻
+• /send - Send Message to Spacific User 🤵🏻 (Admin 👨🏻‍✈️ Only)
+• /group_send - Send Message to Spacific Chat 🤵🏻 (Admin 👨🏻‍✈️ Only)
 • /stats - to Get Status 📊 Of Files 📂 in Database.
 • /status - to Get Status 📊 Of This Bot 🤖
 • /delete - to Delete 🗑️ a Specific File 📂 From Database.
 • /deleteall - to Delete 🗑️ to All Files 📂 From Database.
 • /deletefiles - to Delete 🗑️ PreDVD and CAMRip Files 📂 From Database.
 • /users - to Get List of My Users and IDs.
+• /junk_users - Clear All Deleted Accounts & Blocked Accounts From Database.
 • /chats - to Get List of The My Chats and IDs.
+• /junk_chats - Clear Admin 👨🏻‍✈️ Removed Chats or Deactivated Chats on Database.
 • /leave  - to Leave From a Chat.
 • /disable  - to Disable a Chat.
 • /ban  - to Ban a User.
