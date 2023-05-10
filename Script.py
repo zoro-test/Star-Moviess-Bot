@@ -65,7 +65,11 @@ Create One Link This :-
     
 <b>You Can On or Off Auto Filter From Your Chat. 
 
-Example :- <code>/autofilter on Or /autofilter off</code></b>
+<b>Commands and Usage :-</b>
+
+• /autofilter - On/Off Filers in a Chat (Chat Admin 👨🏻‍✈️ Only)
+
+Example :- <code>/autofilter on</code> Or <code>/autofilter off</code></b>
 
 <b>NOTE :-</b>
 <b>1. Make Me The 👨🏻‍✈️ Admin of Your Channel if it's Private.
