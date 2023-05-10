@@ -66,7 +66,6 @@ Create One Link This :-
 <b>You Can On or Off Auto Filter From Your Chat. 
 
 <b>Commands and Usage :-</b>
-
 • /autofilter - On/Off Filers in a Chat (Chat Admin 👨🏻‍✈️ Only)
 
 Example :- <code>/autofilter on</code> Or <code>/autofilter off</code></b>
@@ -115,32 +114,32 @@ YTDL Features  ✨
 • /video - Download Video From YouTube with Any Link 🔗 (Auto Quality)
 • /song - Download Song From YouTube with Song Name</b>"""
 
-    ADMIN_TXT = """<b>Help :-</b> <b>👨🏻‍✈️ Admin Mods</b>
+    ADMIN_TXT = """<b>Help :-</b> <b>👨🏻‍✈️ Admin Tools</b>
 
 <b>NOTE :-</b>
 <b>This Module only Works for My 👨🏻‍✈️ Admins</b>
 
 <b>Commands and Usage :-</b>
-<b>• /logs - to Get The Recent Errors
+<b>• /logs - Get The Recent Errors
 • /send - Send Message to Spacific User 🤵🏻 (Admin 👨🏻‍✈️ Only)
 • /group_send - Send Message to Spacific Chat 🤵🏻 (Admin 👨🏻‍✈️ Only)
-• /stats - to Get Status 📊 Of Files 📂 in Database.
-• /status - to Get Status 📊 Of This Bot 🤖
-• /delete - to Delete 🗑️ a Specific File 📂 From Database.
-• /deleteall - to Delete 🗑️ to All Files 📂 From Database.
-• /deletefiles - to Delete 🗑️ PreDVD and CAMRip Files 📂 From Database.
-• /users - to Get List of My Users and IDs.
-• /junk_users - Clear All Deleted Accounts & Blocked Accounts From Database.
-• /chats - to Get List of The My Chats and IDs.
-• /junk_chats - Clear Admin 👨🏻‍✈️ Removed Chats or Deactivated Chats on Database.
-• /leave  - to Leave From a Chat.
-• /disable  - to Disable a Chat.
-• /ban  - to Ban a User.
-• /unban  - to Unban a User.
-• /channel - to Get List of Total Connected Channels 
-• /broadcast - to Broadcast a Message to All Users 📊
-• /group_broadcast - to Broadcast a Message to All Groups 👥
-• /restart - to Restart The Bot 🤖 With Heroku</b>"""
+• /stats - Get Status 📊 Of Files 📂 in Database
+• /status - Get Status 📊 Of This Bot 🤖
+• /delete - Delete 🗑️ a Specific File 📂
+• /deleteall - Delete 🗑️ to All Files 📂 From Database
+• /deletefiles - to Delete 🗑️ PreDVD and CAMRip Files 📂 From Database
+• /users - Get List of My Users and IDs
+• /junk_users - Clear All Deleted Accounts & Blocked Accounts From Database
+• /chats - Get List of The My Chats and IDs
+• /junk_chats - Clear Admin 👨🏻‍✈️ Removed or Deactivated Chats
+• /leave  - Leave From a Chat
+• /disable  - Disable a Chat
+• /ban  - Ban a User
+• /unban  - Unban a User
+• /channel - Get List of Total Connected Channels 
+• /broadcast - Broadcast a Message to All Users 📊
+• /group_broadcast - Broadcast a Message to All Groups 👥
+• /restart - Restart The Bot 🤖 With Heroku</b>"""
 
     STATUS_TXT = """<b>🗃️ Total Files :-</b> <code>{}</code> <b>Files</b>\n
 <b>👩🏻‍💻 Total Users :-</b> <code>{}</code> <b>Users</b>\n
