@@ -496,7 +496,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Auto Filter', callback_data='autofilter'),
             InlineKeyboardButton('Connections', callback_data='coct')
             ],[                       
-            InlineKeyboardButton('IMDB', callback_data='imdbr'),
+            InlineKeyboardButton('IMDB', callback_data='template'),
             InlineKeyboardButton('Your Info', callback_data='extra'),
             InlineKeyboardButton('Json', callback_data='son')
             ],[           
@@ -562,7 +562,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS), script.RESTRIC_TXT, enums.ParseMode.HTML),
             reply_markup=reply_markup,            
         )
-    elif query.data == "imdbr":
+    elif query.data == "template":
         buttons = [[
             InlineKeyboardButton('⬅️ Back', callback_data='help')
         ]]
