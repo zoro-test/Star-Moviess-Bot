@@ -162,9 +162,6 @@ YTDL Features  ✨
 <b>᚛› From Bot ⪼ <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</a></b>
 """
 
-TRANSLATED_MSG = """<b>Choose The Language From Here That I Want to Translate.👇</b>"""
-
-REQ_TO_ADMIN = """<b>😒 Currently Unavailable to My Database or Not Released This Movie 🎥 ! We are Really Sorry for Inconvenience..!\n Have Patience..! Our Greatest 👨🏻‍✈️ Admins Will Upload This Movie 🎥 As Soon as Possible.!\n\nRequest to Our Greatest 👨🏻‍✈️ Admins</b>"""
 
     FILE_TXT = """➤ 𝐇𝐞𝐥𝐩: 𝐅𝐢𝐥𝐞 𝐒𝐭𝐨𝐫𝐞 𝐌𝐨𝐝𝐮𝐥𝐞../
 
@@ -407,4 +404,6 @@ Delete A Lot Of Messages From Groups!
     STICKERID_TXT = """<b>• /stickerid - Reply to Any Sticker to Get Sticker's ID</b>"""
 
     PASSWORD_TXT = """<b>• /password - Generate Secret Password 🔑</b>"""
+
+REQ_TO_ADMIN = """<b>😒 Currently Unavailable to My Database or Not Released This Movie 🎥 ! We are Really Sorry for Inconvenience..!\n Have Patience..! Our Greatest 👨🏻‍✈️ Admins Will Upload This Movie 🎥 As Soon as Possible.!\n\nRequest to Our Greatest 👨🏻‍✈️ Admins</b>"""
 
