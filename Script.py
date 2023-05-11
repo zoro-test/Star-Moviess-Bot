@@ -402,9 +402,9 @@ Delete A Lot Of Messages From Groups!
 <code>/mp4 https://youtu.be/*******</code>
 <code>/video https://youtu.be/*****</code>  """
 
-
+    SHORT_TXT = """<b>• /short - Use This Command with Your Link 🔗 to Get Shorted Links 🔗</b>"""
     
+    STICKERID_TXT = """<b>• /stickerid - Reply to Any Sticker to Get Sticker's ID</b>"""
 
-
-    
+    PASSWORD_TXT = """<b>• /password - Generate Secret Password 🔑</b>"""
 
