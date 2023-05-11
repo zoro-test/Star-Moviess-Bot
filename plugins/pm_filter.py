@@ -568,7 +568,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
-            InputMediaPhoto(random.choice(PICS), script.IMAGE_TXT.format(temp.B_NAME), enums.ParseMode.HTML),            
+            InputMediaPhoto(random.choice(PICS), script.TEMPLATE_TXT.format(temp.B_NAME), enums.ParseMode.HTML),            
             reply_markup=reply_markup,
         ) 
     elif query.data == "ytdl":
