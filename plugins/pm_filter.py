@@ -490,14 +490,37 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer('Share and Support us')
     elif query.data == "help":
         buttons = [[
+            InlineKeyboardButton('📊 Status', callback_data='stats'),            
+            ],[
             InlineKeyboardButton('Manuel Filter', callback_data='manuelfilter'),
-            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
-        ], [
-            InlineKeyboardButton('Connections', callback_data='coct'),
-            InlineKeyboardButton('Extra Mods', callback_data='extra')
-        ], [
-            InlineKeyboardButton('🏠 Home 🏠', callback_data='start'),
-            InlineKeyboardButton('📊 Status', callback_data='stats')
+            InlineKeyboardButton('Auto Filter', callback_data='autofilter'),
+            InlineKeyboardButton('Connections', callback_data='coct')
+            ],[                       
+            InlineKeyboardButton('IMDB', callback_data='imdbr'),
+            InlineKeyboardButton('Your Info', callback_data='extra'),
+            InlineKeyboardButton('Json', callback_data='son')
+            ],[           
+            InlineKeyboardButton('Font', callback_data='font'),
+            InlineKeyboardButton('Share Text', callback_data='sharetxt'),           
+            InlineKeyboardButton('Text 2 Speech', callback_data='ttss')
+            ],[
+            InlineKeyboardButton('Graph', callback_data='graph'),
+            InlineKeyboardButton("File Store", callback_data='newdata'),
+            InlineKeyboardButton('Sticker ID', callback_data='stickerid')                                   
+            ],[                               
+            InlineKeyboardButton('Purge', callback_data='purges'),
+            InlineKeyboardButton('Ping', callback_data='pings'),
+            InlineKeyboardButton('Short Link', callback_data='short')
+            ],[
+            InlineKeyboardButton('Mute', callback_data='restric'),
+            InlineKeyboardButton('Kick', callback_data='zombies'),
+            InlineKeyboardButton('Pin', callback_data='pin')
+            ],[
+            InlineKeyboardButton('Password', callback_data='password'),
+            InlineKeyboardButton("Paste", callback_data='pastes'),
+            InlineKeyboardButton('YT-DL', callback_data='ytdl')
+            ],[
+            InlineKeyboardButton('🏠 Home 🏠', callback_data='start')           
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
@@ -507,6 +530,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
+            InlineKeyboardButton('Source Code', callback_data='source')
+            ],[
             InlineKeyboardButton('🏠 Home 🏠', callback_data='start'),
             InlineKeyboardButton('😎 Help', callback_data='help')
          ]]
@@ -518,6 +543,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "source":
         buttons = [[
+            InlineKeyboardButton('Source Code (Coming Soon)', url='https://t.me/Star_Bots_Tamil')
+            ],[            
             InlineKeyboardButton('⬅️ Back', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
