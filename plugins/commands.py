@@ -1029,6 +1029,65 @@ async def jsonify(_, message):
             reply_markup=reply_markup
         )            
         os.remove("json.text")
+	
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36",
+    "content-type": "application/json",
+}
+
+#Pastebins
+async def p_paste(message, extension=None):
+    siteurl = "https://pasty.lus.pm/api/v1/pastes"
+    data = {"content": message}
+    try:
+        response = requests.post(url=siteurl, data=json.dumps(data), headers=headers)
+    except Exception as e:
+        return {"error": str(e)}
+    if response.ok:
+        response = response.json()
+        purl = (
+            f"https://pasty.lus.pm/{response['id']}.{extension}"
+            if extension
+            else f"https://pasty.lus.pm/{response['id']}.txt"
+        )
+        return {
+            "url": purl,
+            "raw": f"https://pasty.lus.pm/{response['id']}/raw",
+            "bin": "Pasty",
+        }
+    return {"error": "Unable to reach pasty.lus.pm"}
+
+
+
+@Client.on_message(filters.command(["tgpaste", "pasty", "paste"]))
+async def pasty(client, message):
+    pablo = await message.reply_text("**Please wait...**")
+    tex_t = message.text
+    if ' ' in message.text:
+        message_s = message.text.split(" ", 1)[1]
+    elif message.reply_to_message:
+        message_s = message.reply_to_message.text
+    else:
+        await message.reply("**sorry no in put. please repy to a text or /paste with text**")
+    if not tex_t:
+        if not message.reply_to_message:
+            await pablo.edit("**Only text and documents are supported.**")
+            return
+        if not message.reply_to_message.text:
+            file = await message.reply_to_message.download()
+            m_list = open(file, "r").read()
+            message_s = m_list
+            os.remove(file)
+        elif message.reply_to_message.text:
+            message_s = message.reply_to_message.text
+
+    ext = "py"
+    x = await p_paste(message_s, ext)
+    p_link = x["url"]
+    p_raw = x["raw"]
+
+    pasted = f"**Successfully Paste to Pasty\n\nLink :- • [Click here]({p_link})\n\nRaw Link :- • [Click here]({p_raw}**)"
+    await pablo.edit(pasted, disable_web_page_preview=True)	
 
 @Client.on_message(filters.command("share"))
 async def share_text(client, message):
@@ -1094,13 +1153,13 @@ async def bot_status(client,message):
                 leftperc = math.floor(quota_left / total_quota * 100)
 
                 quota_details = f"""
-Heroku Account Status
-➪ 𝖸𝗈𝗎 𝗁𝖺𝗏𝖾 {total} 𝗁𝗈𝗎𝗋𝗌 𝗈𝖿 𝖿𝗋𝖾𝖾 𝖽𝗒𝗇𝗈 𝗊𝗎𝗈𝗍𝖺 𝖺𝗏𝖺𝗂𝗅𝖺𝖻𝗅𝖾 𝖾𝖺𝖼𝗁 𝗆𝗈𝗇𝗍𝗁.
-➪ 𝖣𝗒𝗇𝗈 𝗁𝗈𝗎𝗋𝗌 𝗎𝗌𝖾𝖽 𝗍𝗁𝗂𝗌 𝗆𝗈𝗇𝗍𝗁:
+**Heroku Account Status 📊
+➪ You Have {total} Hours of Free Dyno Quota Available Each Month.
+➪ Dyno Hours Used This Month :-
         • {used} 𝖧𝗈𝗎𝗋𝗌 ( {usedperc}% )
-➪ 𝖣𝗒𝗇𝗈 𝗁𝗈𝗎𝗋𝗌 𝗋𝖾𝗆𝖺𝗂𝗇𝗂𝗇𝗀 𝗍𝗁𝗂𝗌 𝗆𝗈𝗇𝗍𝗁:
-        • {hours} 𝖧𝗈𝗎𝗋𝗌 ( {leftperc}% )
-        • Approximately {days} days!"""
+➪ Dyno Hours Remaining This Month :-
+        • {hours} Hours ( {leftperc}% )
+        • Approximately {days} Days!**"""
             else:
                 quota_details = ""
         except:
@@ -1124,11 +1183,11 @@ Heroku Account Status
         disk = ""
 
     await message.reply_text(
-        "𝗖𝘂𝗿𝗿𝗲𝗻𝘁 𝘀𝘁𝗮𝘁𝘂𝘀 𝗼𝗳 𝘆𝗼𝘂𝗿 𝗕𝗼𝘁\n\n"
-        "DB Status\n"
-        f"➪ 𝖡𝗈𝗍 𝖴𝗉𝗍𝗂𝗆𝖾: {uptime}\n"
-        f"{quota_details}"
-        f"{disk}",
+        "**Current Status 📊 of Our Bot**\n\n"
+        "**DB Status**\n"
+        f"**➪ 𝖡𝗈𝗍 𝖴𝗉𝗍𝗂𝗆𝖾: {uptime}**\n"
+        f"**{quota_details}**"
+        f"**{disk}**",
         quote=True,
         parse_mode=enums.ParseMode.MARKDOWN
     )
