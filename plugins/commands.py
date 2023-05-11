@@ -978,7 +978,7 @@ async def purge(client, message):
     if not is_admin:
         return
 
-    status_message = await message.reply_text("...", quote=True)
+    status_message = await message.reply_text("**Processing...**", quote=True)
     await message.delete()
     message_ids = []
     count_del_etion_s = 0
@@ -1001,9 +1001,34 @@ async def purge(client, message):
                 revoke=True
             )
             count_del_etion_s += len(message_ids)
-    await status_message.edit_text(f"**deleted {count_del_etion_s} messages")
+    await status_message.edit_text(f"**Deleted {count_del_etion_s} Messages**")
     await asyncio.sleep(5)
     await status_message.delete()	
+
+@Client.on_message(filters.command("json"))
+async def jsonify(_, message):
+    the_real_message = None
+    reply_to_id = None
+    pk = InlineKeyboardMarkup([[InlineKeyboardButton(text="Star Bots Tamil", url="https://t.me/Star_Bots_Tamil")]],[[InlineKeyboardButton(text="🚫 Close", callback_data="close_data")]])  
+                
+    if message.reply_to_message:
+        the_real_message = message.reply_to_message
+    else:
+        the_real_message = message
+
+    try:        
+        await message.reply_text(f"<code>{the_real_message}</code>", reply_markup=pk, quote=True)
+    except Exception as e:
+        with open("json.text", "w+", encoding="utf8") as out_file:
+            out_file.write(str(the_real_message))       
+        await message.reply_document(
+            document="json.text",
+            caption=str(e),
+            disable_notification=True,
+            quote=True,
+            reply_markup=reply_markup
+        )            
+        os.remove("json.text")
 
 @Client.on_message(filters.command("share"))
 async def share_text(client, message):
