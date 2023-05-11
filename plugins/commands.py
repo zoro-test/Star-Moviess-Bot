@@ -1009,7 +1009,7 @@ async def purge(client, message):
 async def jsonify(_, message):
     the_real_message = None
     reply_to_id = None
-    pk = InlineKeyboardMarkup([[InlineKeyboardButton(text="Star Bots Tamil", url="https://t.me/Star_Bots_Tamil")]],[[InlineKeyboardButton(text="🚫 Close", callback_data="close_data")]])  
+    pk = InlineKeyboardMarkup([[InlineKeyboardButton(text="Star Bots Tamil", url="https://t.me/Star_Bots_Tamil")],[InlineKeyboardButton(text="🚫 Close", callback_data="close_data")]])  
                 
     if message.reply_to_message:
         the_real_message = message.reply_to_message
@@ -1029,6 +1029,15 @@ async def jsonify(_, message):
             reply_markup=reply_markup
         )            
         os.remove("json.text")
+	
+@Client.on_message(filters.command("ping"))
+async def ping(_, message):
+    start_t = time.time()
+    rm = await message.reply_text("**Processing...**")
+    end_t = time.time()
+    time_taken_s = (end_t - start_t) * 1000
+    await rm.edit(f"**Ping!\n{time_taken_s:.3f} ms**")
+	
 	
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36",
@@ -1057,13 +1066,6 @@ async def p_paste(message, extension=None):
         }
     return {"error": "Unable to reach pasty.lus.pm"}
 
-@Client.on_message(filters.command("ping"))
-async def ping(_, message):
-    start_t = time.time()
-    rm = await message.reply_text("**Processing...**")
-    end_t = time.time()
-    time_taken_s = (end_t - start_t) * 1000
-    await rm.edit(f"**Ping!\n{time_taken_s:.3f} ms**")
 
 @Client.on_message(filters.command(["tgpaste", "pasty", "paste"]))
 async def pasty(client, message):
