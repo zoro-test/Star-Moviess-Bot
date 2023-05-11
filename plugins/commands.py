@@ -1057,7 +1057,13 @@ async def p_paste(message, extension=None):
         }
     return {"error": "Unable to reach pasty.lus.pm"}
 
-
+@Client.on_message(filters.command("ping"))
+async def ping(_, message):
+    start_t = time.time()
+    rm = await message.reply_text("**Processing...**")
+    end_t = time.time()
+    time_taken_s = (end_t - start_t) * 1000
+    await rm.edit(f"**Ping!\n{time_taken_s:.3f} ms**")
 
 @Client.on_message(filters.command(["tgpaste", "pasty", "paste"]))
 async def pasty(client, message):
