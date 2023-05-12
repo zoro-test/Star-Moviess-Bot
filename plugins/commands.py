@@ -8,7 +8,8 @@ from plugins.extract import extract_time, extract_user
 from pyrogram.types import Message
 from pyrogram.types import ChatPermissions
 from plugins.admin_check import admin_check
-from plugins.extract import extract_time, extract_user                               
+from plugins.extract import extract_time, extract_user 
+from plugins.admin_check import admin_fliter
 from info import ADMINS
 from Script import script
 from time import time, sleep
@@ -359,14 +360,37 @@ async def start(client, message):
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(client, message):
         buttons = [[
+            InlineKeyboardButton('📊 Status', callback_data='stats'),            
+            ],[
             InlineKeyboardButton('Manuel Filter', callback_data='manuelfilter'),
-            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
-        ], [
-            InlineKeyboardButton('Connections', callback_data='coct'),
-            InlineKeyboardButton('Extra Mods', callback_data='extra')
-        ], [
-            InlineKeyboardButton('🏠 Home 🏠', callback_data='start'),
-            InlineKeyboardButton('📊 Status', callback_data='stats')
+            InlineKeyboardButton('Auto Filter', callback_data='autofilter'),
+            InlineKeyboardButton('Connections', callback_data='coct')
+            ],[                       
+            InlineKeyboardButton('IMDB', callback_data='template'),
+            InlineKeyboardButton('Your Info', callback_data='extra'),
+            InlineKeyboardButton('Json', callback_data='son')
+            ],[           
+            InlineKeyboardButton('Font', callback_data='font'),
+            InlineKeyboardButton('Share Text', callback_data='sharetxt'),           
+            InlineKeyboardButton('Text 2 Speech', callback_data='ttss')
+            ],[
+            InlineKeyboardButton('Graph', callback_data='graph'),
+            InlineKeyboardButton("File Store", callback_data='newdata'),
+            InlineKeyboardButton('Sticker ID', callback_data='stickerid')                                   
+            ],[                               
+            InlineKeyboardButton('Purge', callback_data='purges'),
+            InlineKeyboardButton('Ping', callback_data='pings'),
+            InlineKeyboardButton('Short Link', callback_data='short')
+            ],[
+            InlineKeyboardButton('Mute', callback_data='restric'),
+            InlineKeyboardButton('Kick', callback_data='zombies'),
+            InlineKeyboardButton('Pin', callback_data='pin')
+            ],[
+            InlineKeyboardButton('Password', callback_data='password'),
+            InlineKeyboardButton("Paste", callback_data='pastes'),
+            InlineKeyboardButton('YT-DL', callback_data='ytdl')
+            ],[
+            InlineKeyboardButton('🏠 Home 🏠', callback_data='start')           
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -379,6 +403,8 @@ async def help(client, message):
 @Client.on_message(filters.command(["about"]) & filters.private, group=1)
 async def about(client, message):
         buttons = [[
+            InlineKeyboardButton('Source Code', callback_data='source')
+            ],[		
             InlineKeyboardButton('🏠 Home 🏠', callback_data='start'),
             InlineKeyboardButton('😎 Help', callback_data='help')
         ]]
