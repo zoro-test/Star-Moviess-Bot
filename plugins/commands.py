@@ -4,6 +4,20 @@ import logging
 import random
 import asyncio
 from plugins.admin_check import admin_check
+from plugins.extract import extract_time, extract_user                               
+from pyrogram.types import Message
+from pyrogram.types import ChatPermissions
+from plugins.admin_check import admin_check
+from plugins.extract import extract_time, extract_user                               
+from info import ADMINS
+from Script import script
+from time import time, sleep
+from pyrogram import Client, filters, enums 
+from pyrogram.errors import FloodWait
+from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
+from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired, UserAdminInvalid
+from pyrogram import Client, filters
+from plugins.admin_check import admin_check
 from urllib.parse import quote
 from googletrans import Translator
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -1003,8 +1017,276 @@ async def purge(client, message):
             count_del_etion_s += len(message_ids)
     await status_message.edit_text(f"**Deleted {count_del_etion_s} Messages**")
     await asyncio.sleep(5)
-    await status_message.delete()	
+    await status_message.delete()
 
+# Group Manage
+
+
+@Client.on_message(filters.command("ban"))
+async def ban_user(_, message):
+    is_admin = await admin_check(message)
+    if not is_admin:
+        return 
+    user_id, user_first_name = extract_user(message)
+    try:
+        await message.chat.ban_member(user_id=user_id)
+    except Exception as error:
+        await message.reply_text(str(error))                    
+    else:
+        if str(user_id).lower().startswith("@"):
+            await message.reply_text(f"**Someone else is dusting off..! \n{user_first_name} \nIs forbidden.**")                              
+        else:
+            await message.reply_text(f"**Someone else is dusting off..! \n<a href='tg://user?id={user_id}'>{user_first_name}</a> Is forbidden**")                      
+            
+
+@Client.on_message(filters.command("tban"))
+async def temp_ban_user(_, message):
+    is_admin = await admin_check(message)
+    if not is_admin:
+        return
+    if not len(message.command) > 1:
+        return
+    user_id, user_first_name = extract_user(message)
+    until_date_val = extract_time(message.command[1])
+    if until_date_val is None:
+        return await message.reply_text(text=f"**Invalid time type specified. \nExpected m, h, or d, Got it: {message.command[1][-1]}**")   
+    try:
+        await message.chat.ban_member(user_id=user_id, until_date=until_date_val)            
+    except Exception as error:
+        await message.reply_text(str(error))
+    else:
+        if str(user_id).lower().startswith("@"):
+            await message.reply_text(f"**Someone else is dusting off..!\n{user_first_name}\nbanned for {message.command[1]}!**")
+        else:
+            await message.reply_text(f"**Someone else is dusting off..!\n<a href='tg://user?id={user_id}'>Lavane</a>\n banned for {message.command[1]}!**")
+@Client.on_message(filters.group & filters.command('inkick'))
+def inkick(client, message):
+  user = client.get_chat_member(message.chat.id, message.from_user.id)
+  if user.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER):
+    if len(message.command) > 1:
+      input_str = message.command
+      sent_message = message.reply_text(script.START_KICK)
+      sleep(20)
+      sent_message.delete()
+      message.delete()
+      count = 0
+      for member in client.get_chat_members(message.chat.id):
+        if member.user.status in input_str and not member.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER):
+          try:
+            client.ban_chat_member(message.chat.id, member.user.id, int(time() + 45))
+            count += 1
+            sleep(1)
+          except (ChatAdminRequired, UserAdminInvalid):
+            sent_message.edit(script.ADMIN_REQUIRED)
+            client.leave_chat(message.chat.id)
+            break
+          except FloodWait as e:
+            sleep(e.x)
+      try:
+        sent_message.edit(script.KICKED.format(count))
+      except ChatWriteForbidden:
+        pass
+    else:
+      message.reply_text(script.INPUT_REQUIRED)
+  else:
+    sent_message = message.reply_text(script.CREATOR_REQUIRED)
+    sleep(5)
+    sent_message.delete()
+    message.delete()
+
+
+@Client.on_message(filters.group & filters.command('dkick'))
+def dkick(client, message):
+  user = client.get_chat_member(message.chat.id, message.from_user.id)
+  if user.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER):
+    sent_message = message.reply_text(script.START_KICK)
+    sleep(20)
+    sent_message.delete()
+    message.delete()
+    count = 0
+    for member in client.get_chat_members(message.chat.id):
+      if member.user.is_deleted and not member.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER):
+        try:
+          client.ban_chat_member(message.chat.id, member.user.id, int(time() + 45))
+          count += 1
+          sleep(1)
+        except (ChatAdminRequired, UserAdminInvalid):
+          sent_message.edit(script.ADMIN_REQUIRED)
+          client.leave_chat(message.chat.id)
+          break
+        except FloodWait as e:
+          sleep(e.x)
+    try:
+      sent_message.edit(script.DKICK.format(count))
+    except ChatWriteForbidden:
+      pass
+  else:
+    sent_message = message.reply_text(script.CREATOR_REQUIRED)
+    sleep(5)
+    sent_message.delete()
+    message.delete()
+
+  
+@Client.on_message((filters.channel | filters.group) & filters.command('instatus'))
+def instatus(client, message):
+    sent_message = message.reply_text("**Processing...**")
+    recently = 0
+    within_week = 0
+    within_month = 0
+    long_time_ago = 0
+    deleted_acc = 0
+    uncached = 0
+    bot = 0
+    for member in client.get_chat_members(message.chat.id, limit=int(10000)):
+      user = member.user
+      if user.is_deleted:
+        deleted_acc += 1
+      elif user.is_bot:
+        bot += 1
+      elif user.status == enums.UserStatus.RECENTLY:
+        recently += 1
+      elif user.status == enums.UserStatus.LAST_WEEK:
+        within_week += 1
+      elif user.status == enums.UserStatus.LAST_MONTH:
+        within_month += 1
+      elif user.status == enums.UserStatus.LONG_AGO:
+        long_time_ago += 1
+      else:
+        uncached += 1
+
+    chat_type = message.chat.type
+    if chat_type == enums.ChatType.CHANNEL:
+         sent_message.edit(f"**{message.chat.title}\nChat Member Status\n\nRecently - {recently}\nWithin Week - {within_week}\nWithin Month - {within_month}\nLong Time Ago - {long_time_ago}\n\nDeleted Account - {deleted_acc}\nBot - {bot}\nUnCached - {uncached}**")            
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        user = client.get_chat_member(message.chat.id, message.from_user.id)
+        if user.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER, ADMINS):
+            sent_message.edit(f"**{message.chat.title}\nChat Member Status\n\nRecently - {recently}\nWithin Week - {within_week}\nWithin Month - {within_month}\nLong Time Ago - {long_time_ago}\n\nDeleted Account - {deleted_acc}\nBot - {bot}\nUnCached - {uncached}**")
+        else:
+            sent_message.edit("**you are not administrator in this chat**")
+	
+@Client.on_message(filters.command("mute"))
+async def mute_user(_, message):
+    is_admin = await admin_check(message)
+    if not is_admin:
+        return
+    user_id, user_first_name = extract_user(message)
+    try:
+        await message.chat.restrict_member(
+            user_id=user_id,
+            permissions=ChatPermissions(
+            )
+        )
+    except Exception as error:
+        await message.reply_text(
+            str(error)
+        )
+    else:
+        if str(user_id).lower().startswith("@"):
+            await message.reply_text(
+                "👍🏻 "
+                f"**{user_first_name}**"
+                "** Lavender's mouth is shut! **🤐"
+            )
+        else:
+            await message.reply_text(
+                "**👍🏻 **"
+                f"**<a href='tg://user?id={user_id}'>**"
+                "**Of lavender**"
+                "**</a>**"
+                "** The mouth is closed! 🤐**"
+            )
+
+
+@Client.on_message(filters.command("tmute"))
+async def temp_mute_user(_, message):
+    is_admin = await admin_check(message)
+    if not is_admin:
+        return
+
+    if not len(message.command) > 1:
+        return
+
+    user_id, user_first_name = extract_user(message)
+
+    until_date_val = extract_time(message.command[1])
+    if until_date_val is None:
+        await message.reply_text(
+            (
+                "**Invalid time type specified. **"
+                "**Expected m, h, or d, Got it: {}**"
+            ).format(
+                message.command[1][-1]
+            )
+        )
+        return
+
+    try:
+        await message.chat.restrict_member(
+            user_id=user_id,
+            permissions=ChatPermissions(
+            ),
+            until_date=until_date_val
+        )
+    except Exception as error:
+        await message.reply_text(
+            str(error)
+        )
+    else:
+        if str(user_id).lower().startswith("@"):
+            await message.reply_text(
+                "**Be quiet for a while! 😠**"
+                f"**{user_first_name}**"
+                f"** muted for {message.command[1]}!**"
+            )
+        else:
+            await message.reply_text(
+                "**Be quiet for a while! 😠**"
+                f"**<a href='tg://user?id={user_id}'>**"
+                "**Of lavender**"
+                "**</a>**"
+                " **Mouth** "
+                f"**muted for {message.command[1]}!**"
+            )
+	
+@Client.on_message(filters.command("pin") & admin_fliter)
+async def pin(_, message: Message):
+    if not message.reply_to_message:
+        return
+    await message.reply_to_message.pin()
+
+
+@Client.on_message(filters.command("unpin") & admin_fliter)             
+async def unpin(_, message: Message):
+    if not message.reply_to_message:
+        return
+    await message.reply_to_message.unpin()
+	
+@Client.on_message(filters.command(["unban", "unmute"]))
+async def un_ban_user(_, message):
+    is_admin = await admin_check(message)
+    if not is_admin:
+        return
+    user_id, user_first_name = extract_user(message)
+    try:
+        await message.chat.unban_member(user_id=user_id)
+    except Exception as error:
+        await message.reply_text(str(error))
+    else:
+        if str(user_id).lower().startswith("@"):
+            await message.reply_text(
+                "**Okay, changed ... now **"
+                f"**{user_first_name} To **"
+                "** You can join the group!**"
+            )
+        else:
+            await message.reply_text(
+                "**Okay, changed ... now **"
+                f"**<a href='tg://user?id={user_id}'>**"
+                f"**{user_first_name}**"
+                "**</a> To **"
+                "** You can join the group!**"
+            )	
+	
 @Client.on_message(filters.command("json"))
 async def jsonify(_, message):
     the_real_message = None
