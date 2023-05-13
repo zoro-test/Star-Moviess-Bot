@@ -1,5 +1,5 @@
 git+https://github.com/Joelkb/cinemagoer
-pyrogram>=2.0.30
+pyrogram>=2.0.88
 imdbpy==2022.7.9
 tgcrypto
 pymongo[srv]==3.12.3
@@ -32,3 +32,4 @@ yt-dlp==2023.2.17
 wget
 pytz
 pykeyboard
+pyrogram1==0.1.0
