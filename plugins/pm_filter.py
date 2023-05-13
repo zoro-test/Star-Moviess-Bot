@@ -1122,7 +1122,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer("You Don't have Sufficient Rights to do This !", show_alert=True)
 
     elif query.data == 'rkbtn':
-        await query.answer("Hey 👋🏻 Bro 😍\n\n🎯 Click on The Button Below The Files 📂 You want and Star The Bot ⬇️", show_alert=True)
+        await query.answer("Hey 👋🏻 Bro 😍\n\n🎯 Click on The Button Below The Files 📂 You want and Start The Bot ⬇️", show_alert=True)
 
     elif query.data == 'info':
         await query.answer("Request Formats\n\n• Viduthalai Part-1 2023\n• Singham 3 Tamil\n• Shazam 2\n• Wednesday S01\n• 𝖲𝗁𝖾 𝖧𝗎𝗅𝗄 720𝗉\n• Love Today 1080𝗉\n\n‼️ Don't Add Words & Symbols , . - Like send link Movie Series etc‼️", show_alert=True)
