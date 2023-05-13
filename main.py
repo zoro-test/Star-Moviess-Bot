@@ -1,4 +1,4 @@
-import info
+import config
 import time
 import logging
 from pyrogram import Client, idle
