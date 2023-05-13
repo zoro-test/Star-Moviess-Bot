@@ -66,8 +66,8 @@ PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "False")), True
     
       # URL Shortener #
 
-URL_SHORTENER_WEBSITE = environ.get('URL_SHORTENER_WEBSITE', 'droplink.co')
-URL_SHORTNER_WEBSITE_API = environ.get('URL_SHORTNER_WEBSITE_API', '1d85e33efc4969b36e0f6c0a017aaaefd8accccc')
+URL_SHORTENER_WEBSITE = environ.get('URL_SHORTENER_WEBSITE', 'tnshort.net')
+URL_SHORTNER_WEBSITE_API = environ.get('URL_SHORTNER_WEBSITE_API', 'd03a53149bf186ac74d58ff80d916f7a79ae5745')
 
      # Auto Delete For Group Message (Self Delete) #
 SELF_DELETE_SECONDS = int(environ.get('SELF_DELETE_SECONDS', 300))
