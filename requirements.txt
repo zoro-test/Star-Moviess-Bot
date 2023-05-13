@@ -1,3 +1,4 @@
+git+https://github.com/itz-jeol/pyrogram
 git+https://github.com/Joelkb/cinemagoer
 pyrogram>=2.0.30
 imdbpy==2022.7.9
@@ -31,3 +32,4 @@ youtube-search-python
 yt-dlp==2023.2.17
 wget
 pytz
+pykeyboard
