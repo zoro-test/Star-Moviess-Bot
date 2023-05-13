@@ -12,9 +12,9 @@ logging.basicConfig(
 StartTime = time.time()
 app = Client(
     "AMBOT",
-    api_id=config.API_ID,
-    api_hash=config.API_HASH,
-    bot_token=config.BOT_TOKEN,
+    api_id=config.API_ID_1,
+    api_hash=config.API_HASH_1,
+    bot_token=config.BOT_TOKEN_1,
     in_memory=True,
     plugins=dict(root="SGenBot"),
 )
