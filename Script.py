@@ -1,6 +1,5 @@
 import re
 from os import environ
-from info import OWNER_ID
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -18,7 +17,7 @@ class script(object):
 I have that Features.
 Create One Link This :-
 » I will Create For One Bot You. But Paid
-» Contact Me <a tg://user?id={OWNER_ID}><b>Karthik</b></a></b>"""
+» Contact Me <a href=https://t.me/TG_Karthik><b>Karthik</b></a></b>"""
     ABOUT_TXT = """<b><i>🤖 My Name :- <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a>\n
 🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik><b>Karthik</b></a>\n
 📝 Language :- Python3\n
