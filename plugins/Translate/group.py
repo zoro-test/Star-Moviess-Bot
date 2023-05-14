@@ -7,7 +7,7 @@ from pyrogram.types import (
     InlineKeyboardMarkup
 )
 
-@Client.on_message(filters.private | filters.group & filters.command(["translate"]))
+@Client.on_message(filters.command(["translate"]))
 async def left(client,message):
 	if (message.reply_to_message):
 		try:
