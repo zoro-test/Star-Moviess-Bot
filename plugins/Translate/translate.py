@@ -71,9 +71,9 @@ async def echo(client, message):
 							fromt = i
 						if list[i] == translation.dest:
 							to = i
-					await message.reply_text(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\n Join [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
+					await message.reply_text(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\n Join [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
 			except Exception as e:
-					await message.reply_text(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\n Join [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
+					await message.reply_text(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\n Join [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
 	else:
 		await  message.reply_text("**Select Your Language 👇🏻**",reply_to_message_id = message.id, reply_markup =keybord1)
 
@@ -291,7 +291,7 @@ async def translate_text(bot,update):
       					fromt = i
       				if list[i] == translation.dest:
       					to = i 
-      			await update.message.edit(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\nJoin [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
+      			await update.message.edit(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\nJoin [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
       		except Exception as e:
-      			await update.message.edit(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\nJoin [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
+      			await update.message.edit(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\nJoin [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
       						
