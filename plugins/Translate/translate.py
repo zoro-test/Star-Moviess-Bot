@@ -73,7 +73,7 @@ async def echo(client, message):
 							to = i
 					await message.reply_text(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\n Join [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
 			except Exception as e:
-					await message.reply_text(f"**Translated From {translation.src} To {translation.dest}\n\<code>{translation.text}</code>\n\n Join [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
+					await message.reply_text(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\n Join [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
 	else:
 		await  message.reply_text("**Select Your Language 👇🏻**",reply_to_message_id = message.id, reply_markup =keybord1)
 
