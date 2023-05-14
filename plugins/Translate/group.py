@@ -2,6 +2,10 @@ from googletrans import Translator
 from pyrogram import Client, filters
 from plugins.list import list
 from database.gtrans_mdb import find_one
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup
+)
 
 @Client.on_message(filters.group & filters.command(["translate"]))
 async def left(client,message):
@@ -18,13 +22,13 @@ async def left(client,message):
 						fromt = i
 					if list[i] == translation.dest:
 						to = i 
-				await message.reply_text(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\nJoin [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
+				await message.reply_text(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\nJoin [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
 			except:
-			   	await message.reply_text(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\nJoin [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**")
+			   	await message.reply_text(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\nJoin [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
       			
 				
 			
 		except :
 			print("error")
 	else:
-			 ms = await message.reply_text("**You Can Use This Command with Your Language by using Reply to Message\n\n Example :-** ```/translate Tamil```")
+			 ms = await message.reply_text("**You Can Use This Command with Your Language by using Reply to Message\n\n Example :-** <code>/translate Tamil</code>",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
