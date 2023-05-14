@@ -22,13 +22,13 @@ async def left(client,message):
 						fromt = i
 					if list[i] == translation.dest:
 						to = i 
-				await message.reply_text(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\nJoin [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
+				await message.reply_text(f"**Translated From {fromt.capitalize()} To {to.capitalize()}\n\n<code>{translation.text}</code>\n\nJoin [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**", disable_web_page_preview=True,reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
 			except:
-			   	await message.reply_text(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\nJoin [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
+			   	await message.reply_text(f"**Translated From {translation.src} To {translation.dest}\n\n<code>{translation.text}</code>\n\nJoin [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**", disable_web_page_preview=True,reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
       			
 				
 			
 		except :
 			print("error")
 	else:
-			 ms = await message.reply_text("**You Can Use This Command with Your Language by using Reply to Message\n\n Example :-** <code>/translate Tamil</code>",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
+			 ms = await message.reply_text("**You Can Use This Command with Your Language by using Reply to Message.\n\n Example :-** <code>/translate Tamil</code>",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
