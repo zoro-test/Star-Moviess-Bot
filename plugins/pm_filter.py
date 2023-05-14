@@ -518,9 +518,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ],[
             InlineKeyboardButton('Password', callback_data='password'),
             InlineKeyboardButton("Paste", callback_data='pastes'),
-            InlineKeyboardButton('Bot Channel', channel_id=BOT_CHANNEL_ID),            
             InlineKeyboardButton('YT-DL', callback_data='ytdl')
             ],[
+            InlineKeyboardButton('Bot Channel', channel_id=BOT_CHANNEL_ID),            
             InlineKeyboardButton('🏠 Home 🏠', callback_data='start')           
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
