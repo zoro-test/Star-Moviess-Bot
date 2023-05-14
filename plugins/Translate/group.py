@@ -31,4 +31,4 @@ async def left(client,message):
 		except :
 			print("error")
 	else:
-			 ms = await message.reply_text("**You Can Use This Command with Your Language by using Reply to Message.\n\n Example :-** <code>/translate Tamil</code>",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
+			 ms = await message.reply_text("**You Can Use This Command with Your Language by using Reply to Message. You Can Get More Languages/list\n\n Example :-** <code>/translate Tamil</code>",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
