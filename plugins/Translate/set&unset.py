@@ -9,7 +9,7 @@ from plugins.list import list
 @Client.on_message(filters.private &filters.command(['unset']))
 async def unsetlg(client,message):
 	unset(int(message.chat.id))
-	await message.reply_text("**Successfully Removed Custom Default Language**")
+	await message.reply_text("**Successfully Removed Custom Default Language**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
 
 @Client.on_message(filters.private &filters.command(['set']))
 async def setlg(client,message):
@@ -26,6 +26,6 @@ async def setlg(client,message):
     	    			await message.reply_text("**❗️ This Language Not Available in My List \n Or Check Your spelling 😉\n\nCheck Languages List With Language Code**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Star Bots Tamil" ,url="https://t.me/Star_Bots_Tamil")]]))
     	    			return
     	    		set(user_id,lgcd)
-    	    		await message.reply_text(f"**Successfully Set Custom Default Language {cd}**")
+    	    		await message.reply_text(f"**Successfully Set Custom Default Language {cd}**",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
     	    else:
-    	    		await message.reply_text("**Please Use This Command with an Argument.You Can Get Languages /list.\nFor Example :-** <code>/set Tamil</code>",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
+    	    		await message.reply_text("**Please Use This Command with an Argument.You Can Get More Languages /list.\nFor Example :-** <code>/set Tamil</code>",reply_markup=InlineKeyboardMarkup([[	InlineKeyboardButton("Star Bots Tamil",url = "https://t.me/Star_Bots_Tamil")]]))
