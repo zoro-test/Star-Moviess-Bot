@@ -34,7 +34,6 @@ from Script import script
 from pyrogram import filters
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from plugins.language import BOT_LANGUAGE, GROUP_LANGUAGE
 import os, asyncio, aiofiles, aiofiles.os, datetime, traceback,random, string, time, logging
 logger = logging.getLogger(__name__)
 from random import choice
