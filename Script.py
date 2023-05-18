@@ -12,7 +12,7 @@ def is_enabled(value, default):
 
 class script(object):
     HOME_BUTTONURL_UPDATES = environ.get("HOME_BUTTONURL_UPDATES", 'https://tnlink.in/ref/KarthikUK')
-    START_TXT = environ.get("START_TXT", '''<b>Hello 👋🏻 {} ♥️,\nI'm an Star Movies Tamil's Official Auto Filter Bot (Movie Search Bot) <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a> Maintained by <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. We are Providing All Languages. 🌍 Languages :- Tamil, Telugu, Hindi, Malayalam, Kannada, English and Extra... Keep me Join to Our Official Channel to Receive 🎥 Movie Updates in <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. And Also Keep me Join to Our Official Bot Channel to Receive 🤖 Bot Updates in <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a>. Check "😁 About" Button.</b>''')
+    START_TXT = environ.get("START_TXT", '''<b>Hello 👋🏻 {} ♥️,\nI'm an Star Movies Tamil's Official <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a> (Movie Search Bot) Maintained by <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. We are Providing All Languages. 🌍 Languages :- Tamil, Telugu, Hindi, Malayalam, Kannada, English and Extra... Keep me Join to Our Official Channel to Receive 🎥 Movie Updates in <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. And Also Keep me Join to Our Official Bot Channel to Receive 🤖 Bot Updates in <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a>. Check "😁 About" Button.</b>''')
     HELP_TXT = """<b>Hello 👋🏻 {} ♥️,
 I have that Features.
 Create One Link This :-
@@ -27,7 +27,7 @@ Create One Link This :-
 🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a>\n
 🌟 Version :- 4.4</b></i>"""
     SOURCE_TXT = """<b>Create One Like This :-</b>
-» I will Create One Bot For You. But Paid<b>
+<b>» I will Create One Bot For You. But Paid
 » Contact Me</b> <a href=https://t.me/TG_Karthik><b>Karthik</b></a>"""
     MANUELFILTER_TXT = """<b>Help :-</b> <b>Filters</b>
 
@@ -175,9 +175,9 @@ YTDL Features  ✨
 
 ⪼ 𝐄𝐱𝐚𝐦𝐩𝐥𝐞 ›
 
-<code>/batch https://t.me/mkn_bots_updates https://t.me/mkn_bots_updates</code>
+<code>/batch https://t.me/Star_Moviess_Tamil/01 https://t.me/Star_Moviess_Tamil/02</code>
 
-𝙲𝚁𝙴𝙳𝙸𝚃𝚂 ›› <a href=https://t.me/mkn_bots_updates><b>𝙼𝙺𝙽 𝙱𝙾𝚃𝚉</b></a>"""
+𝙲𝚁𝙴𝙳𝙸𝚃𝚂 ›› <a href=https://t.me/Star_Bots_Tamil><b>Star Bots Tamil</b></a>"""
    
 
     US_CHAT_TXT = """<b>ɴᴏᴛᴇ:</b>
@@ -342,7 +342,7 @@ Delete A Lot Of Messages From Groups!
       
     DKICK = """✔️ Kicked {} Deleted Accounts Successfully."""
       
-    FETCHING_INFO = """<b>ഇപ്പൊ എല്ലാം അടിച്ചുമാറ്റി തരാം...</b>"""
+    FETCHING_INFO = """<b>ഇപ്പ...</b>"""
       
     CARB_TXT = """☾︎𝗛𝗘𝗟𝗣 𝗙𝗢𝗥 𝗖𝗔𝗥𝗕𝗢𝗡☽︎
 𝙲𝙰𝚁𝙱𝙾𝙽 𝙸𝚂 𝙰 𝙵𝙴𝚄𝚃𝚄𝚁𝙴 𝚃𝙾 𝙼𝙰𝙺𝙴 𝚃𝙷𝙴 𝙸𝙼𝙰𝙶𝙴 𝙰𝚂 𝚂𝙷𝙾𝚆𝙽 𝙸𝙽 𝚃𝙷𝙴 𝚃𝙾𝙿 𝚆𝙸𝚃𝙷 𝚈𝙾𝚄𝚁𝙴 𝚃𝙴𝚇𝚃𝚂.
