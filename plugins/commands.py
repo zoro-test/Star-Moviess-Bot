@@ -1334,7 +1334,10 @@ async def pin(_, message: Message):
 @Client.on_message(filters.command(["mycode"]))
 async def password(bot, update):
     message = await update.reply_text(text="<code>Genrating Your Code Please Wait...</code>")
-    password = "abcdefghijklmnopqrstuvwxyz1234567890".upper()
+    password1 = "abcdef1357".upper()
+    password2 = "ghijkl12345".upper()
+    password3 = "uvwxyz2468".upper()
+    password4 = "opqrst98765".upper()
     if len(update.command) > 1:
         qw = update.text.split(" ", 1)[1]
     else:
@@ -1342,8 +1345,11 @@ async def password(bot, update):
         qw = random.choice(ST)
     limit = int(qw)
 
-    random_value = "".join(random.sample(password, limit))
-    txt = f"<b>Your Code Genrated Successfully✅</b> \n\n<b>Your Code:</b> <code>{random_value}-{random_value}-{random_value}-{random_value}</code>"
+    random_value1 = "".join(random.sample(password1, limit))
+    random_value2 = "".join(random.sample(password2, limit))
+    random_value3 = "".join(random.sample(password3, limit))
+    random_value4 = "".join(random.sample(password4, limit))
+    txt = f"<b>Your Code Genrated Successfully✅</b> \n\n<b>Your Code:</b> <code>{random_value1}-{random_value2}-{random_value3}-{random_value4}</code>"
     btn = InlineKeyboardMarkup([[InlineKeyboardButton('⭐️Send Your Code Here⭐️', url='https://t.me/Zoro_StrawHat7')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
