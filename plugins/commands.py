@@ -1338,11 +1338,11 @@ async def password(bot, update):
     if len(update.command) > 1:
         qw = update.text.split(" ", 1)[1]
     else:
-        ST = ["5", "7", "6", "9", "10", "12", "14", "8", "13"] 
+        ST = ["⭐️", "✨"] 
         qw = random.choice(ST)
     limit = int(qw)
     random_value = "".join(random.sample(password, limit))
-    txt = f"<b>Your Code Genrated Successfully✅</b> {str(limit)} \n<b>Your Code:</b> <code>{random_value}</code>"
-    btn = InlineKeyboardMarkup([[InlineKeyboardButton('Star Movies Tamil', url='https://t.me/Star_Moviess_Tamil')]])
+    txt = f"<b>Your Code Genrated Successfully✅</b> {str(limit)} \n\n<b>Your Code:</b> <code>{random_value}</code>"
+    btn = InlineKeyboardMarkup([[InlineKeyboardButton('⭐️Send Your Code Here⭐️', url='https://t.me/Zoro_StrawHat7')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
