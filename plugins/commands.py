@@ -1355,15 +1355,13 @@ async def password(bot, update):
 
 	
 @Client.on_message(filters.command(["anime"]))
-async def password(bot, update):
-    message = await update.reply_text(text="<code>Searching Anime Please Wait...</code>")
-    password = "https://www.hindianimeacademy.in/search?q=".lower()
-	
-    if len(update.command) > 1:
-        text = text.replace(" ", '+')
-
-    random_value = "".join(message.sample(password, text))
-    txt = f"<b>Search Completed✅</b> \n\n<b>Here is Your Anime Link : {random_vaue}"
+async def search(bot, update):
+	usr_agent = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/61.0.3163.100 Safari/537.36'
+        }
+    text = text.replace(" ", '+')
+    message = await update.reply_text(text="https://www.hindianimeacademy.in/search?q={text}")
     btn = InlineKeyboardMarkup([[InlineKeyboardButton('Click For More', url='https://t.me/Hindi_Anime_Academy')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
