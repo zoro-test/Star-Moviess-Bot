@@ -1333,12 +1333,12 @@ async def pin(_, message: Message):
 
 @Client.on_message(filters.command(["mycode"]))
 async def password(bot, update):
-    message = await update.reply_text(text="**Genrating Your Code Please Wait...**")
+    message = await update.reply_text(text="Genrating Your Code Please Wait...")
     password = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".lower()
     if len(update.command) > 1:
         qw = update.text.split(" ", 1)[1]
     else:
-        ST = ["❤️", "😇"] 
+        ST = ["❤️", "🌟", "🤠", "😇"] 
         qw = random.choice(ST)
     limit = int(qw)
     random_value = "".join(random.sample(password, limit))
