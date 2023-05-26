@@ -38,11 +38,11 @@ async def save_group(bot, message):
             return
         buttons = [[
             InlineKeyboardButton('How to Use Me ❓', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
+            InlineKeyboardButton('Join Giveaway Channel', url='https://t.me/StrawHat_Giveaway')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>›› Thanks to Add me to Your Group. {message.chat.title} ❣️\n›› Don't Forget to Make me Admin.\n›› Is Any Doubts About Using me Click Below Button...⚡⚡</b>",
+            text=f"<b>›› Thanks to Add me to Your Group. {message.chat.title} ❣️\n›› Don't Forget to Make me Admin.\n›› Make Your own Bot Like This. Contact - @Zoro_StrawHat7 \n›› Is Any Doubts About Using me Click Below Button...⚡⚡</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
@@ -106,7 +106,7 @@ async def disable_chat(bot, message):
         return await message.reply(f"This chat is already disabled:\nReason-<code> {cha_t['reason']} </code>")
     await db.disable_chat(int(chat_), reason)
     temp.BANNED_CHATS.append(int(chat_))
-    await message.reply('C<b>hat Successfully Disabled</b>')
+    await message.reply('<b>Chat Successfully Disabled</b>')
     try:
         buttons = [[
             InlineKeyboardButton('👥 Support', url=f'https://t.me/{SUPPORT_CHAT}')
