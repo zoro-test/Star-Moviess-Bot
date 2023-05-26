@@ -1361,5 +1361,363 @@ async def search(bot, update):
     await message.edit_text(text=replace(" ", '+'), reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
 
+@Client.on_message(filters.command("alive"))
+async def check_alive(_, message):
+    await message.reply_text("**Hello 👋🏻 Bro /start**")
+
+@Client.on_message(filters.command('song') & filters.private)
+async def song(client, message):
+    user_id = message.from_user.id 
+    user_name = message.from_user.first_name 
+    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
+    query = ''
+    for i in message.command[1:]:
+        query += ' ' + str(i)
+    print(query)
+    m = await message.reply(f"**ѕєαrchíng чσur ѕσng...!\n {query}**")
+    ydl_opts = {"format": "bestaudio[ext=m4a]"}
+    try:
+        results = YoutubeSearch(query, max_results=1).to_dict()
+        link = f"https://youtube.com{results[0]['url_suffix']}"
+        title = results[0]["title"][:40]       
+        thumbnail = results[0]["thumbnails"][0]
+        thumb_name = f'thumb{title}.jpg'
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(thumb_name, 'wb').write(thumb.content)
+        performer = f"[Mᴋɴ Bᴏᴛᴢ™]" 
+        duration = results[0]["duration"]
+        url_suffix = results[0]["url_suffix"]
+        views = results[0]["views"]
+    except Exception as e:
+        print(str(e))
+        return await m.edit("**𝙵𝙾𝚄𝙽𝙳 𝙽𝙾𝚃𝙷𝙸𝙽𝙶 𝙿𝙻𝙴𝙰𝚂𝙴 𝙲𝙾𝚁𝚁𝙴𝙲𝚃 𝚃𝙷𝙴 𝚂𝙿𝙴𝙻𝙻𝙸𝙽𝙶 𝙾𝚁 𝙲𝙷𝙴𝙲𝙺 𝚃𝙷𝙴 𝙻𝙸𝙽𝙺**")
+                
+    await m.edit("**dσwnlσαdíng чσur ѕσng...!**")
+    try:
+        with YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(link, download=False)
+            audio_file = ydl.prepare_filename(info_dict)
+            ydl.process_info(info_dict)
+        cap = "**BY›› [Star Movies Tamil](https://t.me/Star_Moviess_Tamil)**"
+        secmul, dur, dur_arr = 1, 0, duration.split(':')
+        for i in range(len(dur_arr)-1, -1, -1):
+            dur += (int(dur_arr[i]) * secmul)
+            secmul *= 60
+        await message.reply_audio(
+            audio_file,
+            caption=cap,            
+            quote=False,
+            title=title,
+            duration=dur,
+            performer=performer,
+            thumb=thumb_name
+        )            
+        await m.delete()
+    except Exception as e:
+        await m.edit("**🚫 Error 🚫**")
+        print(e)
+    try:
+        os.remove(audio_file)
+        os.remove(thumb_name)
+    except Exception as e:
+        print(e)
+def get_text(message: Message) -> [None,str]:
+    text_to_return = message.text
+    if message.text is None:
+        return None
+    if " " not in text_to_return:
+        return None
+    try:
+        return message.text.split(None, 1)[1]
+    except IndexError:
+        return None
+
+@Client.on_message(filters.command("text2speech"))
+async def text_to_speech(_, message: Message):
+    if not message.reply_to_message:
+        return await message.reply_text("**Reply to with Any Text.**")
+    if not message.reply_to_message.text:
+        return await message.reply_text("**Reply to with Any Text.**")
+    m = await message.reply_text("**Processing**")
+    text = message.reply_to_message.text
+    try:
+        loop = get_running_loop()
+        audio = await loop.run_in_executor(None, convert, text)
+        await message.reply_audio(audio)
+        await m.delete()
+        audio.close()
+    except Exception as e:
+        await m.edit(e)
+        e = traceback.format_exc()
+        print(e)
+
+
+@Client.on_message(filters.command(["translate"]) & filters.private)
+async def left(client,message):
+	if (message.reply_to_message):
+		try:
+			lgcd = message.text.split("/translate")
+			lg_cd = lgcd[1].lower().replace(" ", "")
+			tr_text = message.reply_to_message.text
+			translator = Translator()
+			translation = translator.translate(tr_text,dest = lg_cd)
+			hehek = InlineKeyboardMarkup(
+                                [
+                                    [
+                                        InlineKeyboardButton(
+                                            text=f"More Lang Codes", url="https://cloud.google.com/translate/docs/languages"
+                                        )
+                                    ],
+				    [
+                                        InlineKeyboardButton(
+                                            "🚫 Close", callback_data="close_data"
+                                        )
+                                    ],
+                                ]
+                            )
+			try:
+				for i in list:
+					if list[i]==translation.src:
+						fromt = i
+					if list[i] == translation.dest:
+						to = i 
+				await message.reply_text(f"Translated from {fromt.capitalize()} To {to.capitalize()}\n\n```{translation.text}``` Join @Star_Bots_Tamil", reply_markup=hehek, quote=True)
+			except:
+			   	await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```Join @Star_Bots_Tamil", reply_markup=hehek, quote=True)
+			
+		except :
+			print("error")
+	else:
+			 ms = await message.reply_text("You can Use This Command by using reply to message")
+
+@Client.on_message(filters.command(["video"]))
+async def vsong(client, message: Message):
+    urlissed = get_text(message)
+    pablo = await client.send_message(message.chat.id, f"**𝙵𝙸𝙽𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙴𝙾** `{urlissed}`")
+    if not urlissed:
+        return await pablo.edit("Invalid Command Syntax Please Check help Menu To Know More!")     
+    search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
+    mi = search.result()
+    mio = mi["search_result"]
+    mo = mio[0]["link"]
+    thum = mio[0]["title"]
+    fridayz = mio[0]["id"]
+    mio[0]["channel"]
+    kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
+    await asyncio.sleep(0.6)
+    url = mo
+    sedlyf = wget.download(kekme)
+    opts = {
+        "format": "best",
+        "addmetadata": True,
+        "key": "FFmpegMetadata",
+        "prefer_ffmpeg": True,
+        "geo_bypass": True,
+        "nocheckcertificate": True,
+        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
+        "outtmpl": "%(id)s.mp4",
+        "logtostderr": False,
+        "quiet": True,
+    }
+    try:
+        with YoutubeDL(opts) as ytdl:
+            ytdl_data = ytdl.extract_info(url, download=True)
+    except Exception as e:
+        return await pablo.edit_text(f"**𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙵𝚊𝚒𝚕𝚎𝚍 𝙿𝚕𝚎𝚊𝚜𝚎 𝚃𝚛𝚢 𝙰𝚐𝚊𝚒𝚗..♥️** \n**Error :** `{str(e)}`")       
+    
+    file_stark = f"{ytdl_data['id']}.mp4"
+    capy = f"""**𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})\n**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}"""
+
+    await client.send_video(
+        message.chat.id,
+        video=open(file_stark, "rb"),
+        duration=int(ytdl_data["duration"]),
+        file_name=str(ytdl_data["title"]),
+        thumb=sedlyf,
+        caption=capy,
+        supports_streaming=True,        
+        reply_to_message_id=message.id 
+    )
+    await pablo.delete()
+    for files in (sedlyf, file_stark):
+        if files and os.path.exists(files):
+            os.remove(files)
+
+BITLY_API = os.environ.get("BITLY_API", "aa2132168583d283fb288625d9352f2c5835512a")
+CUTTLY_API = os.environ.get("CUTTLY_API", "bd3a3ab946d7598ee459331dac9e9568e3d66")
+EZ4SHORT_API = os.environ.get("EZ4SHORT_API", "e41618d805b3c4256dfa99abde6ef11fc7629c47")
+TINYURL_API = os.environ.get("TINYURL_API", "iRkhyhlmfJ07cFVsFV0NpvX6dOWZIwPglbq8jQDuSBMqAEk5Y81BX04ejVQk")
+DROPLINK_API = os.environ.get("DROPLINK_API", "1d85e33efc4969b36e0f6c0a017aaaefd8accccc")
+TNLINK_API = os.environ.get("TNLINK_API", "d03a53149bf186ac74d58ff80d916f7a79ae5745")
+SHAREUS_API = os.environ.get("SHAREUS_API", "IiXFmlsLukgMvDpc3t3FHbLal4u1")
+
+reply_markup = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
+        ],
+        [
+        InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
+        ],
+        [
+        InlineKeyboardButton('⚡ Request', url=f"https://t.me/TG_Karthik"),
+        ],
+        [
+        InlineKeyboardButton('🚫 Close', callback_data='close_data')
+        ]]
+    )
+
+@Client.on_message(filters.command(["short"]) & filters.regex(r'https?://[^\s]+'))
+async def reply_shortens(bot, update):
+    message = await update.reply_text(
+        text="**Analysing Your Link...**",
+        disable_web_page_preview=True,
+        reply_markup=reply_markup,
+        quote=True
+    )
+    link = update.matches[0].group(0)
+    shorten_urls = await short(link)
+    await message.edit_text(
+        text=shorten_urls,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
+    )
+
+@Client.on_inline_query(filters.regex(r'https?://[^\s]+'))
+async def inline_short(bot, update):
+    link = update.matches[0].group(0),
+    shorten_urls = await short(link)
+    answers = [
+        InlineQueryResultArticle(
+            title="Short Links",
+            description=update.query,
+            input_message_content=InputTextMessageContent(
+                message_text=shorten_urls,
+                disable_web_page_preview=True
+            ),
+            reply_to_message_id=message.id
+        )
+    ]
+    await bot.answer_inline_query(
+        inline_query_id=update.id,
+        results=answers
+    )
+
+async def short(link):
+    shorten_urls = "**--Shortened URLs--**\n"
+    
+    # Bit.ly Shortener
+    if BITLY_API:
+        try:
+            s = Shortener(api_key=BITLY_API)
+            url = s.bitly.short(link)
+            shorten_urls += f"\n**Bit.ly :- {url}**\n"
+        except Exception as error:
+            print(f"Bit.ly Error :- {error}")
+        
+    # Clck.ru Shortener
+    try:
+        s = Shortener()
+        url = s.clckru.short(link)
+        shorten_urls += f"\n**Clck.ru :- {url}**\n"
+    except Exception as error:
+        print(f"Click.ru Error :- {error}")
+    
+    # Cutt.ly Shortener
+    if CUTTLY_API:
+        try:
+            s = Shortener(api_key=CUTTLY_API)
+            url = s.cuttly.short(link)
+            shorten_urls += f"\n**Cutt.ly :- {url}**\n"
+        except Exception as error:
+            print(f"Cutt.ly Error :- {error}")
+    
+    # Da.gd Shortener
+    try:
+        s = Shortener()
+        url = s.dagd.short(link)
+        shorten_urls += f"\n**Da.gd :- {url}**\n"
+    except Exception as error:
+        print(f"Da.gd Error :- {error}")
+    
+    # Is.gd Shortener
+    try:
+        s = Shortener()
+        url = s.isgd.short(link)
+        shorten_urls += f"\n**Is.gd :- {url}**\n"
+    except Exception as error:
+        print(f"Is.gd Error :- {error}")
+    
+    # Osdb.link Shortener
+    try:
+        s = Shortener()
+        url = s.osdb.short(link)
+        shorten_urls += f"\n**Osdb.link :- {url}**\n"
+    except Exception as error:
+        print(f"Osdb.link Error :- {error}")
+                
+    # Droplink.co Shortener
+    try:
+        api_url = "https://droplink.co/api" 
+        params = {'api': DROPLINK_API, 'url': link}
+        async with aiohttp.ClientSession() as session:
+            async with session.get(api_url, params=params, raise_for_status=True) as response:
+                data = await response.json()
+                url = data["shortenedUrl"]
+                shorten_urls += f"\n**DropLink.co :- {url}**\n"
+    except Exception as error:
+        print(f"Droplink.co Error :- {error}")
+
+    # TNLink.in Shortener
+    try:
+        api_url = "https://tnlink.in/api" 
+        params = {'api': TNLINK_API, 'url': link}
+        async with aiohttp.ClientSession() as session:
+            async with session.get(api_url, params=params, raise_for_status=True) as response:
+                data = await response.json()
+                url = data["shortenedUrl"]
+                shorten_urls += f"\n**TNLink.in :- {url}**\n"
+    except Exception as error:
+        print(f"TNLink.in Error :- {error}")
+
+    # TinyURL.com Shortener
+    try:
+        s = Shortener(api_key=TINYURL_API)
+        url = s.tinyurl.short(link)
+        shorten_urls += f"\n**TinyURL.com :- {url}**\n"
+    except Exception as error:
+        print(f"TinyURL.com Error :- {error}")
+    
+    # Ez4short.com Shortener
+    try:
+        api_url = "https://ez4short.com/api" 
+        params = {'api': EZ4SHORT_API, 'url': link}
+        async with aiohttp.ClientSession() as session:
+            async with session.get(api_url, params=params, raise_for_status=True) as response:
+                data = await response.json()
+                url = data["shortenedUrl"]
+                shorten_urls += f"\n**Ez4short.com :- {url}**\n"
+    except Exception as error:
+        print(f"Ez4short.com Error :- {error}")
+
+    # Shareus.io Shortener
+    try:
+        api_url = "https://shareus.io/api" 
+        params = {'api': SHAREUS_API, 'url': link}
+        async with aiohttp.ClientSession() as session:
+            async with session.get(api_url, params=params, raise_for_status=True) as response:
+                data = await response.json()
+                url = data["shortenedUrl"]
+                shorten_urls += f"\n**Shareus.io :- {url}**\n"
+    except Exception as error:
+        print(f"Shareus.io Error :- {error}")
+    
+    # Send the text
+    try:
+        shorten_urls += ""
+        return shorten_urls
+    except Exception as error:
+        return error
+
+
 	
 
