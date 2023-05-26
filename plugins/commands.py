@@ -1358,7 +1358,7 @@ async def password(bot, update):
 async def search(bot, update):
     message = await update.reply_text(text="https://www.hindianimeacademy.in/search?q={text}")
     btn = InlineKeyboardMarkup([[InlineKeyboardButton('Click For More', url='https://t.me/Hindi_Anime_Academy')]])
-    await message.edit_text(text=txt,text=replace(" ", '+'), reply_markup=btn, parse_mode=enums.ParseMode.HTML)
+    await message.edit_text(text=replace(" ", '+'), reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
 
 	
