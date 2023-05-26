@@ -1356,14 +1356,9 @@ async def password(bot, update):
 	
 @Client.on_message(filters.command(["anime"]))
 async def search(bot, update):
-	usr_agent = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-        'Chrome/61.0.3163.100 Safari/537.36'
-        }
-    text = text.replace(" ", '+')
     message = await update.reply_text(text="https://www.hindianimeacademy.in/search?q={text}")
     btn = InlineKeyboardMarkup([[InlineKeyboardButton('Click For More', url='https://t.me/Hindi_Anime_Academy')]])
-    await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
+    await message.edit_text(text=txt,text=text.replace(" ", '+'), reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
 
 	
