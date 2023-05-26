@@ -50,7 +50,7 @@ async def grp_bd(bot, message):
 
     k = await message.reply(
 
-        text=f"CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..\nReason : <code>{vazha['reason']}</code>.",
+        text=f"CHAT NOT ALLOWED 🐞\n\nMy Devloper has restricted me from working here ! If you want to know more about it contact my devloper - @Zoro_StrawHat7",
 
         reply_markup=reply_markup)
 
