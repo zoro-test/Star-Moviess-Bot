@@ -1360,12 +1360,9 @@ async def password(bot, update):
     password = "https://www.hindianimeacademy.in/search?q=".lower()
 	
     if len(update.command) > 1:
-        qw = update.text.split(" ", 1)[1]
-    else:
-    limit = int({text})
-    text = text.replace(" ", '+')
+        text = text.replace(" ", '+')
 
-    random_value = "".join(message.sample(password, limit))
+    random_value = "".join(message.sample(password, text))
     txt = f"<b>Search Completed✅</b> \n\n<b>Here is Your Anime Link : {random_vaue}"
     btn = InlineKeyboardMarkup([[InlineKeyboardButton('Click For More', url='https://t.me/Hindi_Anime_Academy')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
