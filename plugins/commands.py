@@ -1333,17 +1333,17 @@ async def pin(_, message: Message):
 
 @Client.on_message(filters.command(["mycode"]))
 async def password(bot, update):
-    message = await update.reply_text(text="Processing...")
+    message = await update.reply_text(text="<code>Genrating Your Code Please Wait...</code>")
     password = "abcdefghijklmnopqrstuvwxyz1234567890".upper()
     if len(update.command) > 1:
         qw = update.text.split(" ", 1)[1]
     else:
-        ST = ["8", "12"] 
+        ST = ["4"] 
         qw = random.choice(ST)
     limit = int(qw)
 
     random_value = "".join(random.sample(password, limit))
-    txt = f"<b>Your Code Genrated Successfully✅</b> \n\n<b>Your Code:</b> <code>{random_value}</code>"
+    txt = f"<b>Your Code Genrated Successfully✅</b> \n\n<b>Your Code:</b> <code>{random_value}-{random_value}-{random_value}-{random_value}</code>"
     btn = InlineKeyboardMarkup([[InlineKeyboardButton('⭐️Send Your Code Here⭐️', url='https://t.me/Zoro_StrawHat7')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
