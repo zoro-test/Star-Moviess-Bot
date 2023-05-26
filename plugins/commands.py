@@ -1338,8 +1338,12 @@ async def password(bot, update):
     if len(update.command) > 1:
         qw = update.text.split(" ", 1)[1]
     else:
-    random_value = "".join(random.sample(password))
-    txt = f"<b>Your Code Genrated Successfully✅</b> {str} \n\n<b>Your Code:</b> <code>{random_value}</code>"
+        ST = ["8", "12"] 
+        qw = random.choice(ST)
+    limit = int(qw)
+
+    random_value = "".join(random.sample(password, limit))
+    txt = f"<b>Your Code Genrated Successfully✅</b> \n\n<b>Your Code:</b> <code>{random_value}</code>"
     btn = InlineKeyboardMarkup([[InlineKeyboardButton('⭐️Send Your Code Here⭐️', url='https://t.me/Zoro_StrawHat7')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)
 
