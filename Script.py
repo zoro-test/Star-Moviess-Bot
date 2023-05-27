@@ -19,10 +19,10 @@ Create One Link This :-
 » I will Create For One Bot You. But Paid
 » Contact Me <a href=https://t.me/TG_Karthik><b>Karthik</b></a></b>"""
     ABOUT_TXT = """<b><i>🤖 My Name :- <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a>\n
-🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik><b>Karthik</b></a>\n
+🧑🏻‍💻 Developer :- <a href=https://t.me/Zoro_StrawHat7><b>Zoro</b></a>\n
 📝 Language :- Python3\n
 📚 Framework :- Pyrogram\n
-📡 Hosted on :- VPS\n
+📡 Hosted on :- Heroku\n
 🎥 Movie Updates :- <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>\n
 🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a>\n
 🌟 Version :- 4.4</b></i>"""
