@@ -12,7 +12,7 @@ def is_enabled(value, default):
 
 class script(object):
     HOME_BUTTONURL_UPDATES = environ.get("HOME_BUTTONURL_UPDATES", 'https://tnlink.in/ref/KarthikUK')
-    START_TXT = environ.get("START_TXT", '''<b>Hello {}✨,\nI'm an Star Movies Tamil's Official <a href=https://t.me/Star_Moviess_Bot><b>Star Movies Bot</b></a> (Movie Search Bot) Maintained by <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. We are Providing All Languages. 🌍 Languages :- Tamil, Telugu, Hindi, Malayalam, Kannada, English and Extra... Keep me Join to Our Official Channel to Receive 🎥 Movie Updates in <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>. And Also Keep me Join to Our Official Bot Channel to Receive 🤖 Bot Updates in <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a>. Check "😁 About" Button.</b>''')
+    START_TXT = environ.get("START_TXT", '''<b>Hello {}✨,\nI'm a StrawHat Giveaway Bot. Join Our Giveaway Channel — <a href=https://t.me/StrawHat_Giveaway><b></b>Join Me</a>. My Devloper is <a href=https://t.me/Zoro_StrawHat7><b>Zoro</b></a> <b>Only Test Strat message</b>''')
     HELP_TXT = """<b>Hello 👋🏻 {} ♥️,
 I have that Features.
 Create One Link This :-
