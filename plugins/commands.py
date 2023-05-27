@@ -153,11 +153,11 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('©️ Add me to Your Group', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🤖 Bot Channel' , url='https://t.me/Star_Bots_Tamil'),
-            InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
+            InlineKeyboardButton('Bot Support✨' , url='https://t.me/StrawHat_Support'),
+            InlineKeyboardButton('Bot Updates🌟', url='https://t.me/StrawHat_Bots')
             ],[
             InlineKeyboardButton('😎 Help', callback_data='help'),
-            InlineKeyboardButton('😁 About', callback_data='about')
+            InlineKeyboardButton('⭐️Giveaway Channel⭐️', url='https://t.me/StrawHat_Giveaway')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
